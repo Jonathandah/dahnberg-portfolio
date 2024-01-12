@@ -3,7 +3,7 @@
 	import '../app.postcss';
 </script>
 
-<div class="app h-dvh flex flex-col dark:bg-black">
+<div class="app h-dvh flex flex-col">
 	<Header />
 
 	<main class=" flex-1">
