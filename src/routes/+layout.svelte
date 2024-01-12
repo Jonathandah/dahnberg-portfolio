@@ -3,10 +3,10 @@
 	import '../app.postcss';
 </script>
 
-<div class="app">
+<div class="app h-dvh flex flex-col dark:bg-black">
 	<Header />
 
-	<main class="min-h-screen">
+	<main class=" flex-1">
 		<slot />
 	</main>
 
