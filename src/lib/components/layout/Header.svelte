@@ -4,10 +4,10 @@
 </script>
 
 <Navbar
-	class="!px-0 mx-auto py-2.5 fixed z-20 top-0 left-0 border-b [&>div]:px-4 bg-zinc-200 border-b-zinc-300 dark:bg-gray-800"
+	class="!px-0 mx-auto py-1 fixed z-20 top-0 left-0 border-b [&>div]:px-4  shadow-border-black dark:shadow-border-gray h-fit !bg-transparent border-none"
 >
 	<NavBrand href="/">
-		<img src={logo} class="h-10 w-10" alt="Dahnberg logo" />
+		<img src={logo} class="h-8 w-8" alt="Dahnberg logo" />
 	</NavBrand>
 	<div class="flex items-center md:order-2">
 		<DarkMode />
