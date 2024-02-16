@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+import { IBM_Plex_Mono, Libre_Franklin } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils/cn';
 
-export const fontSans = FontSans({
+
+const IBMPlexMono = IBM_Plex_Mono({
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
+
+const LibreFranklin = Libre_Franklin({
   subsets: ['latin'],
   variable: '--font-sans',
 });
@@ -20,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>{children}</body>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', IBMPlexMono.variable, LibreFranklin.variable)}>{children}</body>
     </html>
   );
 }
