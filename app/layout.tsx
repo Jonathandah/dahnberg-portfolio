@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Libre_Franklin } from 'next/font/google';
-import './globals.css';
-import { cn } from '@/lib/utils/cn';
 
+import { cn } from '@/lib/utils/cn';
+import { Navbar } from '@/components/layout/Navbar';
+import { ThemeProvider } from '@/components/theme-provider';
+
+import './globals.css';
 
 const IBMPlexMono = IBM_Plex_Mono({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -27,7 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', IBMPlexMono.variable, LibreFranklin.variable)}>{children}</body>
+      <body
+        className={cn('min-h-screen bg-background font-sans antialiased', IBMPlexMono.variable, LibreFranklin.variable)}
+      >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
