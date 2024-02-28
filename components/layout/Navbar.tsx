@@ -12,10 +12,11 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({ children, cl
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end gap-2">
-            {/*      
             <Button asChild variant="ghost" size="sm">
-              <Link href="#">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </Button>
+            {/*      
+        
             <Button asChild variant="ghost" size="sm">
               <Link href="#">Projects</Link>
             </Button> */}
