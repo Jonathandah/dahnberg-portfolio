@@ -9,7 +9,7 @@ import { ProjectItem } from './components/ProjectItem';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Container className="py-20 md:py-40 flex flex-col gap-20 items-center sm:items-start">
+      <Container className="py-24 md:py-40 flex flex-col gap-20 items-center sm:items-start">
         <h1 className="text-2xl md:text-4xl font-semibold text-primary">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jonathan Dahnberg — a frontend developer trying to achieve
           something.
