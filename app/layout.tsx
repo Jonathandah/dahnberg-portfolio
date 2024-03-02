@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils/cn';
 import { Navbar } from '@/components/layout/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
-import './globals.css';
+import './styles/tailwind.css';
 
 const IBMPlexMono = IBM_Plex_Mono({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
