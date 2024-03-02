@@ -28,10 +28,10 @@ export type MDXEntry<T> = T & { href: string; metadata: T }
 export interface Article {
   title: string,
   description: string,
-  thumbnailUrl: string,
   date: string,
   datetime: string,
   category: string,
+  author: string
 }
 
 
