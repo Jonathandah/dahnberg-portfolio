@@ -1,25 +1,37 @@
+'use client';
+
 import { cn } from '@/lib/utils/cn';
 import Link from 'next/link';
 import * as React from 'react';
 import { Button } from '../ui/button';
 import { ModeToggle } from '../actions/ModeToggle';
+import { usePathname } from 'next/navigation';
 
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {}
 
 export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(({ children, className, ...props }, ref) => {
+  const pathname = usePathname();
+
   return (
     <nav ref={ref} className={cn('bg-background', className)} {...props}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end gap-2">
-            <Button asChild variant="ghost" size="sm">
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
+            <Button
+              asChild
+              variant="link"
+              className={cn('text-muted-foreground px-2', pathname === '/' && 'text-foreground underline')}
+            >
+              <Link href="/">Home</Link>
+            </Button>
+            <Button
+              asChild
+              variant="link"
+              className={cn('text-muted-foreground px-2', pathname.includes('/blog') && 'text-foreground underline')}
+            >
               <Link href="/blog">Blog</Link>
             </Button>
-            {/*      
-        
-            <Button asChild variant="ghost" size="sm">
-              <Link href="#">Projects</Link>
-            </Button> */}
+
             <ModeToggle />
             <Button asChild variant="ghost" size="icon">
               <Link href="https://github.com/Jonathandah" target="_blank" rel="noopener noreferrer">
