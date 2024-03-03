@@ -6,12 +6,12 @@ export const article = {
     "To align tailwind and untitled ui we need to set up a theme that aligns with the untitled ui design system. This will allow us to use the same colors and styles across figma and the codebase so that we don't create cOnFuSe?!",
   category: 'other',
   author: 'Jonathan Meeprong Dahnberg',
-};
+}
 
 export const metadata = {
   title: article.title,
   description: article.description,
-};
+}
 
 To align tailwind and untitled ui we need to set up a theme that aligns with the untitled ui design system. This will allow us to use the same colors and styles across figma and the codebase so that we don't create <span style={{
     fontWeight: 'bold',
@@ -22,13 +22,22 @@ To align tailwind and untitled ui we need to set up a theme that aligns with the
 
 The colors will be based on shades to help us get a richer and more dynamic theme (**25, 50, 100, 200,** etc). They will be using **hsl** since that is the meta apparently. There will primarily be 7 different colors.
 
-- <span className=" p-1 rounded-lg bg-foreground text-background/90">Base</span> (White, black, transparent)
-- <span className=" p-1 rounded-lg bg-[#667085] text-background/90">Grey</span> (light mode)
--  <span className=" p-1 rounded-lg bg-[#85888E] text-background/90">Grey</span> (dark mode)
-- <span className=" p-1 rounded-lg bg-[#479AB8] text-background/90">Brand</span> (primary, will be customizable to fit your brand)
-- <span className=" p-1 rounded-lg bg-[#F04438] text-background/90">Error</span>
-- <span className=" p-1 rounded-lg bg-[#F79009] text-background/90">Warning</span>
-- <span className=" p-1 rounded-lg bg-[#17B26A] text-background/90">Success</span>
+- <span className=" rounded-lg bg-foreground p-1 text-background/90">
+    Base
+  </span> (White, black, transparent)
+- <span className=" rounded-lg bg-[#667085] p-1 text-background/90">Grey</span> (light
+  mode)
+- <span className=" rounded-lg bg-[#85888E] p-1 text-background/90">Grey</span> (dark
+  mode)
+- <span className=" rounded-lg bg-[#479AB8] p-1 text-background/90">Brand</span> (primary,
+  will be customizable to fit your brand)
+- <span className=" rounded-lg bg-[#F04438] p-1 text-background/90">Error</span>
+- <span className=" rounded-lg bg-[#F79009] p-1 text-background/90">
+    Warning
+  </span>
+- <span className=" rounded-lg bg-[#17B26A] p-1 text-background/90">
+    Success
+  </span>
 
 I found setting upp a css file with variables for the most common colors the easiest way to work with both light and dark mode.
 
@@ -617,27 +626,27 @@ To toggle between light and dark mode.
 `components/theme-provider.tsx`
 
 ```tsx
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | 'system';
+type Theme = 'dark' | 'light' | 'system'
 
 type ThemeProviderProps = {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
-};
+  children: React.ReactNode
+  defaultTheme?: Theme
+  storageKey?: string
+}
 
 type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-};
+  theme: Theme
+  setTheme: (theme: Theme) => void
+}
 
 const initialState: ThemeProviderState = {
   theme: 'system',
   setTheme: () => null,
-};
+}
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({
   children,
@@ -645,45 +654,51 @@ export function ThemeProvider({
   storageKey = 'vite-ui-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+  )
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = window.document.documentElement
 
-    root.classList.remove('light', 'dark');
+    root.classList.remove('light', 'dark')
 
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
+        ? 'dark'
+        : 'light'
 
-      root.classList.add(systemTheme);
-      return;
+      root.classList.add(systemTheme)
+      return
     }
 
-    root.classList.add(theme);
-  }, [theme]);
+    root.classList.add(theme)
+  }, [theme])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+      localStorage.setItem(storageKey, theme)
+      setTheme(theme)
     },
-  };
+  }
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       {children}
     </ThemeProviderContext.Provider>
-  );
+  )
 }
 
 export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
+  const context = useContext(ThemeProviderContext)
 
-  if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider');
+  if (context === undefined)
+    throw new Error('useTheme must be used within a ThemeProvider')
 
-  return context;
-};
+  return context
+}
 ```
 
 **2. Wrap your app with the theme provider**
@@ -693,7 +708,7 @@ Add the ThemeProvider to your root layout.
 `App.tsx`
 
 ```tsx
-import { ThemeProvider } from './components/theme-provider';
+import { ThemeProvider } from './components/theme-provider'
 
 function App() {
   return (
@@ -701,10 +716,10 @@ function App() {
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       {children}
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 **3. Add a mode toggle**
@@ -714,17 +729,17 @@ Place a mode toggle on your site to toggle between light and dark mode.
 `components/mode-toggle.tsx`
 
 ```jsx
-import { useTheme } from './components/theme-provider';
+import { useTheme } from './components/theme-provider'
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme } = useTheme()
 
   return (
     <div>
       <button onClick={() => setTheme('light')}>Light</button>
       <button onClick={() => setTheme('dark')}>Dark</button>
     </div>
-  );
+  )
 }
 ```
 

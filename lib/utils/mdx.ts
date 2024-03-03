@@ -22,20 +22,17 @@ async function loadEntries<T extends { date: string }>(
   ).sort((a, b) => b.date.localeCompare(a.date))
 }
 
-
 export type MDXEntry<T> = T & { href: string; metadata: T }
 
 export interface Article {
-  title: string,
-  description: string,
-  date: string,
-  datetime: string,
-  category: string,
+  title: string
+  description: string
+  date: string
+  datetime: string
+  category: string
   author: string
 }
-
 
 export function loadArticles() {
   return loadEntries<Article>('blog', 'article')
 }
-

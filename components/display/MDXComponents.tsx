@@ -1,4 +1,3 @@
-
 import { GrayscaleTransitionImage } from './GrayscaleTransitionImage'
 import { cn } from '@/lib/utils/cn'
 
@@ -10,7 +9,7 @@ export const MDXComponents = {
     return (
       <div
         className={cn(
-          'group isolate my-10 overflow-hidden rounded-4xl bg-background max-sm:-mx-6',
+          'rounded-4xl group isolate my-10 overflow-hidden bg-background max-sm:-mx-6',
           className,
         )}
       >

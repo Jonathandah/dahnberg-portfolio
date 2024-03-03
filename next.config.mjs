@@ -1,15 +1,15 @@
-import rehypeShiki from '@leafac/rehype-shiki';
-import nextMDX from '@next/mdx';
-import { Parser } from 'acorn';
-import jsx from 'acorn-jsx';
-import escapeStringRegexp from 'escape-string-regexp';
-import * as path from 'path';
-import { recmaImportImages } from 'recma-import-images';
-import remarkGfm from 'remark-gfm';
-import { remarkRehypeWrap } from 'remark-rehype-wrap';
-import remarkUnwrapImages from 'remark-unwrap-images';
-import shiki from 'shiki';
-import { unifiedConditional } from 'unified-conditional';
+import rehypeShiki from '@leafac/rehype-shiki'
+import nextMDX from '@next/mdx'
+import { Parser } from 'acorn'
+import jsx from 'acorn-jsx'
+import escapeStringRegexp from 'escape-string-regexp'
+import * as path from 'path'
+import { recmaImportImages } from 'recma-import-images'
+import remarkGfm from 'remark-gfm'
+import { remarkRehypeWrap } from 'remark-rehype-wrap'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import shiki from 'shiki'
+import { unifiedConditional } from 'unified-conditional'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -23,17 +23,17 @@ const nextConfig = {
     ],
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-};
+}
 
 function remarkMDXLayout(source, metaName) {
-  let parser = Parser.extend(jsx());
-  let parseOptions = { ecmaVersion: 'latest', sourceType: 'module' };
+  let parser = Parser.extend(jsx())
+  let parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
 
   return (tree) => {
-    let imp = `import _Layout from '${source}'`;
+    let imp = `import _Layout from '${source}'`
     let exp = `export default function Layout(props) {
       return <_Layout {...props} ${metaName}={${metaName}} />
-    }`;
+    }`
 
     tree.children.push(
       {
@@ -45,15 +45,15 @@ function remarkMDXLayout(source, metaName) {
         type: 'mdxjsEsm',
         value: exp,
         data: { estree: parser.parse(exp, parseOptions) },
-      }
-    );
-  };
+      },
+    )
+  }
 }
 
 export default async function config() {
   let highlighter = await shiki.getHighlighter({
     theme: 'css-variables',
-  });
+  })
 
   let withMDX = nextMDX({
     extension: /\.mdx$/,
@@ -82,7 +82,7 @@ export default async function config() {
         ],
       ],
     },
-  });
+  })
 
-  return withMDX(nextConfig);
+  return withMDX(nextConfig)
 }

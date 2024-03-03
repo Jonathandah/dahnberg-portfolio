@@ -1,39 +1,39 @@
-import { cn } from '@/lib/utils/cn';
+import { cn } from '@/lib/utils/cn'
 
 export const BentoGrid = ({
   className,
   children,
 }: {
-  className?: string;
-  children?: React.ReactNode;
+  className?: string
+  children?: React.ReactNode
 }) => {
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
-        className
+        'mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3 ',
+        className,
       )}
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 export const BentoGridItem = ({
   className,
-children,
+  children,
 }: {
-  className?: string;
-    children?: React.ReactNode;
+  className?: string
+  children?: React.ReactNode
 }) => {
   return (
     <div
       className={cn(
-        "row-span-1 rounded-lg  hover:shadow-xl transition duration-200 shadow-input dark:shadow-none  dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
-        className
+        'row-span-1 flex  flex-col justify-between space-y-4 rounded-lg border  border-transparent bg-white shadow-input transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
+        className,
       )}
     >
-        {children}
+      {children}
     </div>
-  );
-};
+  )
+}

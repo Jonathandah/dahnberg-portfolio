@@ -1,18 +1,18 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import { useTheme } from "next-themes"
+import { useTheme } from 'next-themes'
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { SunIcon } from "@heroicons/react/24/solid"
-import { MoonIcon } from "@heroicons/react/24/outline"
+} from '@/components/ui/dropdown-menu'
+import { SunIcon } from '@heroicons/react/24/solid'
+import { MoonIcon } from '@heroicons/react/24/outline'
 
 export function ModeToggle() {
   const { setTheme } = useTheme()
@@ -27,13 +27,13 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => setTheme('light')}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={() => setTheme('dark')}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={() => setTheme('system')}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
