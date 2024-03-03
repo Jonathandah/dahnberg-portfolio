@@ -10,10 +10,9 @@ import { FadeIn } from '@/components/display/FadeIn'
 export default function Home() {
   // TODO: Can be restored when there is more content.
   return (
-    <main className="h-full overflow-hidden my-auto">
+    <main className='overflow-hidden'>
       <FadeIn>
-        {/* TODO: can be restored to "flex max-h-dvh  flex-col items-center gap-20 py-24 sm:items-start sm:py-32" when there is more content*/}
-        <Container className="flex flex-col items-center gap-20 sm:items-start">
+        <Container className="flex max-h-dvh flex-col items-center gap-20 py-24 sm:items-start sm:py-32">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jonathan Dahnberg —
             a frontend developer trying to achieve something.
@@ -23,7 +22,7 @@ export default function Home() {
             className=" h-auto w-56 grayscale md:w-72"
             src={meBeer}
             alt="Me drinking beer"
-          />
+          />      
 
           <h2 className=" text-3xl font-semibold text-primary sm:text-4xl">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Who am I? — Sorry to
@@ -39,7 +38,7 @@ export default function Home() {
           </h2>
         </Container>
       </FadeIn>
-            {/* <Container className="mt-16 sm:mt-20 flex flex-col">
+      {/* <Container className="mt-16 sm:mt-20 flex flex-col">
         <div className="md:ml-40">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-semibold text-primary">

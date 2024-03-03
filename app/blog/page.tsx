@@ -7,9 +7,9 @@ export default async function BlogPage() {
   const articles = await loadArticles()
 
   return (
-    <main className="min-h-screen">
+    <main>
       <FadeIn>
-        <Container className="my-24 sm:my-32">
+        <Container className="py-24 sm:py-32">
           <header className="max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl ">
               Writing on software design, company building, and the aerospace
@@ -25,9 +25,57 @@ export default async function BlogPage() {
             <div className="md:border-l md:border-border md:pl-6 ">
               <div className="flex max-w-3xl flex-col space-y-20">
                 {articles.map((article) => (
-                  <FadeIn key={article.title}>
+                  <>
+                                <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
+                    <Article article={article} />
+                  </FadeIn>              <FadeIn key={article.title}>
                     <Article article={article} />
                   </FadeIn>
+                  </>
                 ))}
               </div>
             </div>
