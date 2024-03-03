@@ -19,7 +19,7 @@ const LibreFranklin = Libre_Franklin({
 })
 
 export const metadata: Metadata = {
-  title: 'Dahnberg dev',
+  title: 'Dahnberg',
   description:
     'Portfolio of Jonathan Dahnberg, a frontend developer based in Malmö, Sweden.',
 }
@@ -44,8 +44,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <div className='min-h-dvh flex flex-col'>
+            <Navbar />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -16,7 +16,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
     return (
       <nav
         ref={ref}
-        className={cn('absolute right-0 top-0 z-40 bg-background  ', className)}
+        className={cn('sticky top-0 z-40 bg-background  ', className)}
         {...props}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

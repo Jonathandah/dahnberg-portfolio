@@ -8,11 +8,12 @@ import { Container } from '@/components/layout/Container'
 import { FadeIn } from '@/components/display/FadeIn'
 
 export default function Home() {
+  // TODO: Can be restored when there is more content.
   return (
-    <main className="min-h-dvh">
+    <main className="h-full overflow-hidden my-auto">
       <FadeIn>
-        {/* TODO: max-h-screen can be removed when there is more content on this page */}
-        <Container className=" flex max-h-dvh  flex-col items-center gap-20 py-24 sm:items-start sm:py-32">
+        {/* TODO: can be restored to "flex max-h-dvh  flex-col items-center gap-20 py-24 sm:items-start sm:py-32" when there is more content*/}
+        <Container className="flex flex-col items-center gap-20 sm:items-start">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jonathan Dahnberg —
             a frontend developer trying to achieve something.
