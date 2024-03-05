@@ -22,62 +22,18 @@ export default async function BlogPage() {
           </header>
 
           <div className="mt-16 sm:mt-20">
-            <div className="md:border-l md:border-border md:pl-6 ">
-              <div className="flex max-w-3xl flex-col space-y-20">
-                {articles.map((article) => (
-                  <>
-                                <FadeIn key={article.title}>
+            <div className="flex max-w-3xl flex-col space-y-20">
+              {articles.map((article) => (
+                <>
+                  <FadeIn key={article.datetime}>
                     <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
+                  </FadeIn>               <FadeIn key={article.datetime}>
                     <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
-                    <Article article={article} />
-                  </FadeIn>              <FadeIn key={article.title}>
+                  </FadeIn>               <FadeIn key={article.datetime}>
                     <Article article={article} />
                   </FadeIn>
-                  </>
-                ))}
-              </div>
+                </>
+              ))}
             </div>
           </div>
         </Container>

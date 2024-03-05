@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-export interface BlogPostProps {
+export interface ArticleProps {
   article: MDXEntry<Article>
 }
 
@@ -43,19 +43,18 @@ function Eyebrow<T extends React.ElementType = 'p'>({
   )
 }
 
-export function Article({ article }: BlogPostProps) {
+export function Article({ article }: ArticleProps) {
   return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
-      <div className="group relative flex flex-col items-start md:col-span-3 ">
-        <div className="inline-flex items-center gap-2">
+    <article className="md:grid md:grid-cols-12 md:items-baseline">
+      <div className="group relative flex flex-col items-start md:col-span-8 ">
+        <div className="inline-flex items-center">
           <h2 className="text-base font-semibold tracking-tight text-foreground">
             <Link href={`${article.href}`}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
               <span className="relative z-10">{article.title}</span>
             </Link>
           </h2>
-          <Badge variant="secondary">{article.category}</Badge>
-          <Badge>New</Badge>
+          <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" />
         </div>
 
         <Eyebrow as="time" dateTime={article.datetime} className="md:hidden">
@@ -65,19 +64,11 @@ export function Article({ article }: BlogPostProps) {
         <p className="relative z-10 mt-2 text-sm text-foreground">
           {article.description}
         </p>
-
-        <div
-          aria-hidden="true"
-          className="relative z-10 mt-4 flex items-center text-sm font-medium text-foreground"
-        >
-          Read article
-          <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" />
-        </div>
       </div>
       <Eyebrow
         as="time"
         dateTime={article.datetime}
-        className="mt-1 hidden md:block"
+        className="col-span-2 mt-1 hidden md:block"
       >
         {formatDate(article.date)}
       </Eyebrow>

@@ -8,11 +8,10 @@ import { Container } from '@/components/layout/Container'
 import { FadeIn } from '@/components/display/FadeIn'
 
 export default function Home() {
-  // TODO: Can be restored when there is more content.
   return (
-    <main className='overflow-hidden'>
+    <main>
       <FadeIn>
-        <Container className="flex max-h-dvh flex-col items-center gap-20 py-24 sm:items-start sm:py-32">
+        <Container className="flex flex-col items-center gap-20 py-24 sm:items-start sm:py-32">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jonathan Dahnberg —
             a frontend developer trying to achieve something.

@@ -14,11 +14,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
     const pathname = usePathname()
 
     return (
-      <nav
-        ref={ref}
-        className={cn('fixed top-0 right-0 z-40 w-full', className)}
-        {...props}
-      >
+      <nav ref={ref} className={cn('', className)} {...props}>
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
@@ -26,8 +22,9 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                 asChild
                 variant="link"
                 className={cn(
-                  'px-2 text-muted-foreground',
-                  pathname === '/' && 'text-foreground underline',
+                  'px-2 text-muted-foreground decoration-muted-foreground',
+                  pathname === '/' &&
+                    'text-foreground underline decoration-foreground',
                 )}
               >
                 <Link href="/">Home</Link>
@@ -36,11 +33,24 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                 asChild
                 variant="link"
                 className={cn(
-                  'px-2 text-muted-foreground',
-                  pathname.includes('/blog') && 'text-foreground underline',
+                  'px-2 text-muted-foreground decoration-muted-foreground',
+                  pathname.includes('/blog') &&
+                    'text-foreground underline decoration-foreground',
                 )}
               >
                 <Link href="/blog">Blog</Link>
+              </Button>
+
+              <Button
+                asChild
+                variant="link"
+                className={cn(
+                  'px-2 text-muted-foreground decoration-muted-foreground',
+                  pathname.includes('/thoughts') &&
+                    'text-foreground underline decoration-foreground',
+                )}
+              >
+                <Link href="/thoughts">Thoughts</Link>
               </Button>
 
               <ModeToggle />
