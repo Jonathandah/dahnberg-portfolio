@@ -49,7 +49,11 @@ export default function BlogArticleWrapper({
       <div className="py-20 sm:py-28">
         <Container className="max-w-none ">
           <FadeIn>
-            <Button asChild className="p-0 h-fit uppercase text-xs" variant="text">
+            <Button
+              asChild
+              className="p-0 h-fit uppercase text-xs"
+              variant="text"
+            >
               <Link href="/blog">
                 <ArrowLeftIcon className="w-4 h-4 mr-2" />
                 Back

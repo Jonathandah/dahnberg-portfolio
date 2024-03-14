@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 export interface ProjectItemProps extends React.HTMLAttributes<HTMLElement> {
   href: string

@@ -1,11 +1,9 @@
-import type { Metadata } from 'next'
-import { IBM_Plex_Mono, Libre_Franklin } from 'next/font/google'
-
-import { cn } from '@/lib/utils/cn'
+import './styles/tailwind.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
-
-import './styles/tailwind.css'
+import { cn } from '@/lib/utils/cn'
+import type { Metadata } from 'next'
+import { IBM_Plex_Mono, Libre_Franklin } from 'next/font/google'
 
 const IBMPlexMono = IBM_Plex_Mono({
   weight: ['100', '200', '300', '400', '500', '600', '700'],

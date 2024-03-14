@@ -16,8 +16,8 @@ export default async function BlogPage() {
               Writing on development and stuff
             </h1>
             <p className="mt-6 text-base font-medium ">
-             <Indent/> Surprise surprise, another developer with too many opinions, well
-              yes.
+              <Indent /> Surprise surprise, another developer with too many
+              opinions, well yes.
             </p>
           </header>
 
