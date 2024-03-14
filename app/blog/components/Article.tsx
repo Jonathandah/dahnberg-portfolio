@@ -1,4 +1,3 @@
-import { formatDate } from '@/lib/utils/formatDate'
 import { Article, MDXEntry } from '@/lib/utils/mdx'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -23,7 +22,7 @@ function Eyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 text-muted-foreground  flex items-center text-sm ',
+        'relative z-10 text-muted-foreground  items-center text-sm   inline-flex',
         decorate && 'pl-3.5',
       )}
       {...props}
@@ -55,8 +54,8 @@ export function Article({ article }: ArticleProps) {
           {/* <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" /> */}
         </div>
 
-        <Eyebrow as="time" dateTime={article.datetime} className=" text-nowrap">
-          {formatDate(article.date)}
+        <Eyebrow as="time" dateTime={article.datetime} className="text-nowrap">
+          {article.date}
         </Eyebrow>
 
     </article>

@@ -47,11 +47,11 @@ export default function BlogArticleWrapper({
   return (
     <>
       <div className="py-20 sm:py-28">
-        <Container className="max-w-none ">
-          <FadeIn>
+        <Container>
+          <FadeIn className='max-w-3xl mx-auto'>
             <Button
               asChild
-              className="p-0 h-fit uppercase text-xs"
+              className="p-0 h-fit uppercase text-xs mb-20"
               variant="text"
             >
               <Link href="/blog">
@@ -61,7 +61,7 @@ export default function BlogArticleWrapper({
             </Button>
           </FadeIn>
         </Container>
-        <Container className="">
+        <Container>
           <FadeIn>
             <header className="flex flex-col max-w-3xl mx-auto text-center">
               <h1 className="font-display mt-6 text-5xl font-medium tracking-tight text-foreground [text-wrap:balance] sm:text-6xl">
@@ -71,7 +71,7 @@ export default function BlogArticleWrapper({
                 dateTime={article.datetime}
                 className="order-first text-sm text-foreground"
               >
-                {formatDate(article.date)}
+                {article.date}
               </time>
               <p className="mt-6 text-sm font-semibold text-foreground">
                 by {article.author}

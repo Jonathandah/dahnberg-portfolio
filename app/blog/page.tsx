@@ -16,8 +16,7 @@ export default async function BlogPage() {
               Writing on development and stuff
             </h1>
             <p className="mt-6 text-base font-medium ">
-              <Indent className='hidden sm:inline-block' /> Surprise surprise, another developer with too many
-              opinions, well yes.
+             Surprise surprise, another developer with too many opinions, well yes.
             </p>
           </header>
 
