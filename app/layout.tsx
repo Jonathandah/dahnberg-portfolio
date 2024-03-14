@@ -17,9 +17,9 @@ const LibreFranklin = Libre_Franklin({
 })
 
 export const metadata: Metadata = {
-  title: 'Dahnberg',
+  title: 'Dahnberg | Portfolio',
   description:
-    'Portfolio of Jonathan Dahnberg, a frontend developer based in Malmö, Sweden.',
+    'Portfolio of Jonathan Meeprong Dahnberg, a frontend developer based in Malmö, Sweden.',
 }
 
 export default function RootLayout({
