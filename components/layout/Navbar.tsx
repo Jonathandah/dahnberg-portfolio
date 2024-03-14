@@ -22,7 +22,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
             <div className="flex items-start justify-between w-full">
               <FadeIn>
                 <Link
-                  className="font-medium text-xs uppercase pr-4 py-2 block"
+                  className="font-semibold text-xs uppercase pr-4 py-2 block"
                   href="/"
                 >
                   Dahnberg
@@ -31,7 +31,7 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                 </Link>
               </FadeIn>
               <FadeIn>
-                <p className=" font-medium text-xs uppercase px-4 py-2">
+                <p className=" font-semibold text-xs uppercase px-4 py-2">
                   Frontend
                   <br />
                   Developer.
@@ -39,23 +39,23 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
               </FadeIn>
 
               <FadeIn>
-                <div className="font-medium text-xs uppercase px-4 py-2">
+                <div className="font-semibold text-xs uppercase px-4 py-2 ">
                   <Link
-                    className="underline text-nowrap"
+                    className="underline text-nowrap  inline-flex"
                     href="https://www.linkedin.com/in/jonathan-meeprong-dahnberg-5289ba174/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    LinkedIn <ArrowUpRightIcon className="h-3 w-3 inline" />
+                    LinkedIn <ArrowUpRightIcon className="h-3 w-3 " />
                   </Link>
                   <br />
                   <Link
-                    className="underline text-nowrap"
+                    className="underline text-nowrap  inline-flex"
                     href="https://github.com/Jonathandah"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Github <ArrowUpRightIcon className="h-3 w-3 inline" />
+                    Github <ArrowUpRightIcon className="h-3 w-3 " />
                   </Link>
                 </div>
               </FadeIn>
@@ -65,13 +65,13 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
               </FadeIn>
             </div>
 
-            <div className="flex items-center sm:justify-end sm:ml-0 ml-4 w-full ">
+            <div className="flex items-center sm:justify-end w-full ">
               <FadeIn>
                 <Button
                   asChild
                   variant="link"
                   className={cn(
-                    'decoration-muted-foreground text-xs font-medium uppercase',
+                    'decoration-muted-foreground text-xs font-semibold uppercase pr-0 pl-0',
                     pathname.includes('/blog') &&
                       'text-foreground underline decoration-foreground',
                   )}
