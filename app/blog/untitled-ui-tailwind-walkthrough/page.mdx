@@ -1,0 +1,766 @@
+export const article = {
+  date: '2023-03-01',
+  datetime: '2023-03-01T00:00:00.000Z',
+  title: 'Untitled UI / Tailwind walkthrough',
+  description:
+    "To align tailwind and untitled ui we need to set up a theme that aligns with the untitled ui design system. This will allow us to use the same colors and styles across figma and the codebase so that we don't create cOnFuSe?!",
+  category: 'other',
+  author: 'Jonathan Meeprong Dahnberg',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+To align tailwind and untitled ui we need to set up a theme that aligns with the untitled ui design system. This will allow us to use the same colors and styles across figma and the codebase so that we don't create <span style={{
+    fontWeight: 'bold',
+    background: '-webkit-linear-gradient(#3f5efb, #fc466b)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  }}>cOnFuSe?!</span>
+
+The colors will be based on shades to help us get a richer and more dynamic theme (**25, 50, 100, 200,** etc). They will be using **hsl** since that is the meta apparently. There will primarily be 7 different colors.
+
+- <span className="rounded-lg bg-foreground p-1 text-background/90">Base</span> (White, black, transparent)
+- <span className=" rounded-lg bg-[#667085] p-1 text-background/90">Grey</span> (light mode)
+- <span className=" rounded-lg bg-[#85888E] p-1 text-background/90">Grey</span> (dark mode)
+- <span className=" rounded-lg bg-[#479AB8] p-1 text-background/90">Brand</span> (primary, will be customizable to fit your brand)
+- <span className=" rounded-lg bg-[#F04438] p-1 text-background/90">Error</span>
+- <span className=" rounded-lg bg-[#F79009] p-1 text-background/90">Warning</span>
+- <span className=" rounded-lg bg-[#17B26A] p-1 text-background/90">Success</span>
+
+I found setting upp a css file with variables for the most common colors the easiest way to work with both light and dark mode.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Common */
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+
+    --background: var(--white);
+    --foreground: var(--gray-900);
+
+    --muted: var(--gray-100);
+    --muted-foreground: var(--gray-600);
+
+    --border: var(--gray-200);
+    --input: var(--gray-300);
+    --ring: var(--primary-600);
+
+    --radius: 0.625rem; /* 10px */
+
+    /* Utility  */
+    --primary-25: 195 18% 96%;
+    --primary-50: 196 44% 95%;
+    --primary-100: 196 45% 90%;
+    --primary-200: 196 43% 80%;
+    --primary-300: 196 44% 70%;
+    --primary-400: 196 44% 60%;
+    --primary-500: 196 44% 50%;
+    --primary-600: 196 44% 40%;
+    --primary-700: 196 44% 30%;
+    --primary-800: 196 43% 20%;
+    --primary-900: 196 45% 10%;
+    --primary-950: 196 44% 5%;
+
+    --gray-25: 240 20% 99%;
+    --gray-50: 210 20% 98%;
+    --gray-100: 216 24% 96%;
+    --gray-200: 220 17% 93%;
+    --gray-300: 217 16% 84%;
+    --gray-400: 218 15% 65%;
+    --gray-500: 221 13% 46%;
+    --gray-600: 216 18% 34%;
+    --gray-700: 218 24% 27%;
+    --gray-800: 215 33% 14%;
+    --gray-900: 220 43% 11%;
+    --gray-950: 222 41% 8%;
+
+    --error-25: 12 100% 99%;
+    --error-50: 5 85% 95%;
+    --error-100: 3 84% 90%;
+    --error-200: 4 86% 80%;
+    --error-300: 4 86% 70%;
+    --error-400: 4 86% 60%;
+    --error-500: 4 86% 50%;
+    --error-600: 4 86% 40%;
+    --error-700: 4 86% 30%;
+    --error-800: 4 86% 20%;
+    --error-900: 3 84% 10%;
+    --error-950: 3 85% 5%;
+
+    --warning-25: 42 100% 98%;
+    --warning-50: 35 92% 95%;
+    --warning-100: 34 92% 90%;
+    --warning-200: 34 94% 80%;
+    --warning-300: 34 93% 70%;
+    --warning-400: 34 94% 60%;
+    --warning-500: 34 94% 50%;
+    --warning-600: 34 94% 40%;
+    --warning-700: 34 93% 30%;
+    --warning-800: 34 94% 20%;
+    --warning-900: 34 92% 10%;
+    --warning-950: 33 92% 5%;
+
+    --success-25: 143 80% 98%;
+    --success-50: 153 77% 95%;
+    --success-100: 152 76% 90%;
+    --success-200: 152 76% 80%;
+    --success-300: 152 76% 70%;
+    --success-400: 152 77% 60%;
+    --success-500: 152 77% 50%;
+    --success-600: 152 77% 40%;
+    --success-700: 152 76% 30%;
+    --success-800: 152 76% 20%;
+    --success-900: 152 76% 10%;
+    --success-950: 150 77% 5%;
+  }
+
+  :root[class~='dark'] {
+    /* Common */
+    --background: var(--gray-950);
+    --foreground: var(--gray-50);
+
+    --muted: var(--gray-800);
+    --muted-foreground: var(--gray-400);
+
+    --border: var(--gray-800);
+    --input: var(--gray-700);
+
+    /* Utility  */
+    --gray-25: 0 0% 98%;
+    --gray-50: 240 5% 96%;
+    --gray-100: 180 3% 94%;
+    --gray-200: 240 3% 93%;
+    --gray-300: 225 4% 82%;
+    --gray-400: 225 4% 60%;
+    --gray-500: 220 4% 54%;
+    --gray-600: 224 5% 40%;
+    --gray-700: 223 12% 23%;
+    --gray-800: 221 21% 15%;
+    --gray-900: 221 27% 12%;
+    --gray-950: 222 41% 8%;
+  }
+}
+```
+
+If you notice that there is a color being used often you should probably consider adding a variable for it e.g.
+
+```css
+@layer base {
+  :root {
+    /*...other variables... */
+    --placeholder: var(--gray-500);
+  }
+
+  :root[class~='dark'] {
+    /*...other variables... */
+    --placeholder: var(--gray-400);
+  }
+}
+```
+
+if it's a one off thing you could go with tailwinds `dark` variant e.g.
+
+```html
+<button className="bg-primary-200 dark:bg-primary-300">Example</button>
+```
+
+If you feel like its easier to only use use the `dark:` variant in tailwind feel free to skip css variables.
+
+**Note:** I recommend using [Realtime Colors](https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Poppins-Poppins) to create your theme with shades.
+
+## Explanation of the variables
+
+Base colors, can be used to create shadows etc.
+
+```txt
+--white: 0 0% 100%;
+--black: 0 0% 0%;
+```
+
+---
+
+Background obviously is the background color of the page, and foreground is the text color. Will be changed if dark mode is enabled.
+
+```txt
+--background: var(--white); /* 0 0% 100% */
+--foreground: var(--gray-900); /* 220 43% 11%*/
+
+/* Dark */
+--background: var(--gray-950); /* 222 41% 8% */
+--foreground: var(--gray-50); /* 0 0% 98% */
+```
+
+---
+
+Muted color is lighter grey, good for secondary labels, tabs, skeletons etc. Will be changed if dark mode is enabled.
+
+```txt
+--muted: var(--gray-100); /* 216 24% 96% */
+--muted-foreground: var(--gray-600); /* 216 18% 34% */
+
+/* Dark */
+--muted: var(--gray-800); /* 221 21% 15% */
+--muted-foreground: var(--gray-400); /* 225 4% 60%*/
+```
+
+---
+
+Border is the intended border color for all scenarios except for form elements and buttons, they use a lighter grey color which is `--input`. Will be changed if dark mode is enabled.
+
+```txt
+--border: var(--gray-200); /* 220 17% 93% */
+--input: var(--gray-300); /* 217 16% 84% */
+
+/* Dark */
+--border: var(--gray-800); /* 221 21% 15% */
+--input: var(--gray-700); /* 223 12% 23% */
+```
+
+---
+
+Ring is the color of the focus ring, it's the primary color of the theme.
+
+```txt
+--ring: 196 44% 40%;
+```
+
+---
+
+Radius is the border radius of the elements. Size lg is the default size. If you want a <span className=" font-semibold text-lg bg-gradient-to-r from-blue-500 to-pink-500 inline-block text-transparent bg-clip-text">fun</span> quirky feel increase the radius, if you want to be all buisness decrease the radius.
+
+```txt
+--radius: 0.625rem;
+```
+
+---
+
+The primary is used across all interactive elements such as buttons, links, inputs, etc. This color can define the overall feel and can elicit emotion. Most of the time you will use the 600 color, but the other shades will come in handy for secondary elements, hover backgrounds, dark mode etc.
+
+```txt
+--primary-25: 195 18% 96%;
+--primary-50: 196 44% 95%;
+--primary-100: 196 45% 90%;
+--primary-200: 196 43% 80%;
+--primary-300: 196 44% 70%;
+--primary-400: 196 44% 60%;
+--primary-500: 196 44% 50%;
+--primary-600: 196 44% 40%;
+--primary-700: 196 44% 30%;
+--primary-800: 196 43% 20%;
+--primary-900: 196 45% 10%;
+--primary-950: 196 44% 5%;
+```
+
+---
+
+Gray is a neutral color and is the foundation of the color system. Almost everything in UI design — text, form fields, backgrounds, dividers — are usually gray. They will be changed if dark mode is enabled. The gray shades for dark mode has been desaturated and optimised to work well within dark mode variables.
+
+```txt
+--gray-25: 240 20% 99%;
+--gray-50: 210 20% 98%;
+--gray-100: 216 24% 96%;
+--gray-200: 220 17% 93%;
+--gray-300: 217 16% 84%;
+--gray-400: 218 15% 65%;
+--gray-500: 221 13% 46%;
+--gray-600: 216 18% 34%;
+--gray-700: 218 24% 27%;
+--gray-800: 215 33% 14%;
+--gray-900: 220 43% 11%;
+--gray-950: 222 41% 8%;
+
+/* Dark */
+--gray-25: 0 0% 98%;
+--gray-50: 240 5% 96%;
+--gray-100: 180 3% 94%;
+--gray-200: 240 3% 93%;
+--gray-300: 225 4% 82%;
+--gray-400: 225 4% 60%;
+--gray-500: 220 4% 54%;
+--gray-600: 224 5% 40%;
+--gray-700: 223 12% 23%;
+--gray-800: 221 21% 15%;
+--gray-900: 221 27% 12%;
+--gray-950: 222 41% 8%;
+```
+
+---
+
+Error colors are used across error states and in "destructive" actions. They communicate a destructive/negative action, such as removing a user from your team.
+
+```txt
+--error-25: 12 100% 99%;
+--error-50: 5 85% 95%;
+--error-100: 3 84% 90%;
+--error-200: 4 86% 80%;
+--error-300: 4 86% 70%;
+--error-400: 4 86% 60%;
+--error-500: 4 86% 50%;
+--error-600: 4 86% 40%;
+--error-700: 4 86% 30%;
+--error-800: 4 86% 20%;
+--error-900: 3 84% 10%;
+--error-950: 3 85% 5%;
+```
+
+---
+
+Warning colors can communicate that an action is potentially destructive or "on-hold". These colors are commonly used in confirmations to grab the users' attention.
+
+```txt
+--warning-25: 42 100% 98%;
+--warning-50: 35 92% 95%;
+--warning-100: 34 92% 90%;
+--warning-200: 34 94% 80%;
+--warning-300: 34 93% 70%;
+--warning-400: 34 94% 60%;
+--warning-500: 34 94% 50%;
+--warning-600: 34 94% 40%;
+--warning-700: 34 93% 30%;
+--warning-800: 34 94% 20%;
+--warning-900: 34 92% 10%;
+--warning-950: 33 92% 5%;
+```
+
+---
+
+Success colors communicate a positive action, positive trend, or a successful confirmation. If you're using green as your primary color, it can be helpful to introduce a different hue for your success green.
+
+```txt
+--success-25: 143 80% 98%;
+--success-50: 153 77% 95%;
+--success-100: 152 76% 90%;
+--success-200: 152 76% 80%;
+--success-300: 152 76% 70%;
+--success-400: 152 77% 60%;
+--success-500: 152 77% 50%;
+--success-600: 152 77% 40%;
+--success-700: 152 76% 30%;
+--success-800: 152 76% 20%;
+--success-900: 152 76% 10%;
+--success-950: 150 77% 5%;
+```
+
+## Setup the theme
+
+**1. Add this css to your `index.css` file.**
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+
+    --background: var(--white);
+    --foreground: var(--gray-900);
+
+    --muted: var(--gray-100);
+    --muted-foreground: var(--gray-600);
+
+    --border: var(--gray-200);
+    --input: var(--gray-300);
+    --ring: var(--primary-600);
+
+    --radius: 0.6.25rem; /* 10px */
+
+    --primary-25: 195 18% 96%;
+    --primary-50: 196 44% 95%;
+    --primary-100: 196 45% 90%;
+    --primary-200: 196 43% 80%;
+    --primary-300: 196 44% 70%;
+    --primary-400: 196 44% 60%;
+    --primary-500: 196 44% 50%;
+    --primary-600: 196 44% 40%;
+    --primary-700: 196 44% 30%;
+    --primary-800: 196 43% 20%;
+    --primary-900: 196 45% 10%;
+    --primary-950: 196 44% 5%;
+
+    --gray-25: 240 20% 99%;
+    --gray-50: 210 20% 98%;
+    --gray-100: 216 24% 96%;
+    --gray-200: 220 17% 93%;
+    --gray-300: 217 16% 84%;
+    --gray-400: 218 15% 65%;
+    --gray-500: 221 13% 46%;
+    --gray-600: 216 18% 34%;
+    --gray-700: 218 24% 27%;
+    --gray-800: 215 33% 14%;
+    --gray-900: 220 43% 11%;
+    --gray-950: 222 41% 8%;
+
+    --error-25: 12 100% 99%;
+    --error-50: 5 85% 95%;
+    --error-100: 3 84% 90%;
+    --error-200: 4 86% 80%;
+    --error-300: 4 86% 70%;
+    --error-400: 4 86% 60%;
+    --error-500: 4 86% 50%;
+    --error-600: 4 86% 40%;
+    --error-700: 4 86% 30%;
+    --error-800: 4 86% 20%;
+    --error-900: 3 84% 10%;
+    --error-950: 3 85% 5%;
+
+    --warning-25: 42 100% 98%;
+    --warning-50: 35 92% 95%;
+    --warning-100: 34 92% 90%;
+    --warning-200: 34 94% 80%;
+    --warning-300: 34 93% 70%;
+    --warning-400: 34 94% 60%;
+    --warning-500: 34 94% 50%;
+    --warning-600: 34 94% 40%;
+    --warning-700: 34 93% 30%;
+    --warning-800: 34 94% 20%;
+    --warning-900: 34 92% 10%;
+    --warning-950: 33 92% 5%;
+
+    --success-25: 143 80% 98%;
+    --success-50: 153 77% 95%;
+    --success-100: 152 76% 90%;
+    --success-200: 152 76% 80%;
+    --success-300: 152 76% 70%;
+    --success-400: 152 77% 60%;
+    --success-500: 152 77% 50%;
+    --success-600: 152 77% 40%;
+    --success-700: 152 76% 30%;
+    --success-800: 152 76% 20%;
+    --success-900: 152 76% 10%;
+    --success-950: 150 77% 5%;
+  }
+
+  :root[class~='dark'] {
+    --background: var(--gray-950);
+    --foreground: var(--gray-50);
+
+    --muted: var(--gray-800);
+    --muted-foreground: var(--gray-400);
+
+    --border: var(--gray-800);
+    --input: var(--gray-700);
+
+    --gray-25: 0 0% 98%;
+    --gray-50: 240 5% 96%;
+    --gray-100: 180 3% 94%;
+    --gray-200: 240 3% 93%;
+    --gray-300: 225 4% 82%;
+    --gray-400: 225 4% 60%;
+    --gray-500: 220 4% 54%;
+    --gray-600: 224 5% 40%;
+    --gray-700: 223 12% 23%;
+    --gray-800: 221 21% 15%;
+    --gray-900: 221 27% 12%;
+    --gray-950: 222 41% 8%;
+  }
+}
+```
+
+**2. Add this to your `tailwind.config.js` file.**
+
+Other configs such as padding and margin is fine to leave as default since it already scales them same way as untitled ui.
+
+```js
+borderRadius: {
+ "full": `9999px`,
+ "4xl": `calc(var(--radius) + 14px)`,
+ "3xl": `calc(var(--radius) + 10px)`,
+ "2xl": `calc(var(--radius) + 6px)`,
+  xl: `calc(var(--radius) + 2px)`,
+  lg: `var(--radius)`,
+  md: `calc(var(--radius) - 2px)`,
+  sm: "calc(var(--radius) - 4px)",
+  xs: "calc(var(--radius) - 6px)",
+  xxs: "calc(var(--radius) - 8px)",
+  none: "0",
+},
+colors: {
+  base: {
+    white: 'hsl(var(--white) / <alpha-value>)',
+    black: 'hsl(var(--black) / <alpha-value>)',
+    transparent: "transparent"
+  },
+  background: 'hsl(var(--background) / <alpha-value>)',
+  foreground: 'hsl(var(--foreground) / <alpha-value>)',
+
+  muted: 'hsl(var(--muted) / <alpha-value>)',
+  'muted-foreground': 'hsl(var(--muted-foreground) / <alpha-value>)',
+  border: 'hsl(var(--border) / <alpha-value>)',
+  input: 'hsl(var(--input) / <alpha-value>)',
+  ring: 'hsl(var(--ring) / <alpha-value>)',
+
+  primary: {
+    DEFAULT: 'hsl(var(--primary-500) / <alpha-value>)',
+    25: 'hsl(var(--primary-25) / <alpha-value>)',
+    50: 'hsl(var(--primary-50) / <alpha-value>)',
+    100: 'hsl(var(--primary-100) / <alpha-value>)',
+    200: 'hsl(var(--primary-200) / <alpha-value>)',
+    300: 'hsl(var(--primary-300) / <alpha-value>)',
+    400: 'hsl(var(--primary-400) / <alpha-value>)',
+    500: 'hsl(var(--primary-500) / <alpha-value>)',
+    600: 'hsl(var(--primary-600) / <alpha-value>)',
+    700: 'hsl(var(--primary-700) / <alpha-value>)',
+    800: 'hsl(var(--primary-800) / <alpha-value>)',
+    900: 'hsl(var(--primary-900) / <alpha-value>)',
+    950: 'hsl(var(--primary-950) / <alpha-value>)',
+  },
+  gray: {
+    DEFAULT: 'hsl(var(--gray-500) / <alpha-value>)',
+    25: 'hsl(var(--gray-25) / <alpha-value>)',
+    50: 'hsl(var(--gray-50) / <alpha-value>)',
+    100: 'hsl(var(--gray-100) / <alpha-value>)',
+    200: 'hsl(var(--gray-200) / <alpha-value>)',
+    300: 'hsl(var(--gray-300) / <alpha-value>)',
+    400: 'hsl(var(--gray-400) / <alpha-value>)',
+    500: 'hsl(var(--gray-500) / <alpha-value>)',
+    600: 'hsl(var(--gray-600) / <alpha-value>)',
+    700: 'hsl(var(--gray-700) / <alpha-value>)',
+    800: 'hsl(var(--gray-800) / <alpha-value>)',
+    900: 'hsl(var(--gray-900) / <alpha-value>)',
+    950: 'hsl(var(--gray-950) / <alpha-value>)',
+  },
+  error: {
+    DEFAULT: 'hsl(var(--error-500) / <alpha-value>)',
+    25: 'hsl(var(--error-25) / <alpha-value>)',
+    50: 'hsl(var(--error-50) / <alpha-value>)',
+    100: 'hsl(var(--error-100) / <alpha-value>)',
+    200: 'hsl(var(--error-200) / <alpha-value>)',
+    300: 'hsl(var(--error-300) / <alpha-value>)',
+    400: 'hsl(var(--error-400) / <alpha-value>)',
+    500: 'hsl(var(--error-500) / <alpha-value>)',
+    600: 'hsl(var(--error-600) / <alpha-value>)',
+    700: 'hsl(var(--error-700) / <alpha-value>)',
+    800: 'hsl(var(--error-800) / <alpha-value>)',
+    900: 'hsl(var(--error-900) / <alpha-value>)',
+    950: 'hsl(var(--error-950) / <alpha-value>)',
+  },
+
+  warning: {
+    DEFAULT: 'hsl(var(--warning-500) / <alpha-value>)',
+    25: 'hsl(var(--warning-25) / <alpha-value>)',
+    50: 'hsl(var(--warning-50) / <alpha-value>)',
+    100: 'hsl(var(--warning-100) / <alpha-value>)',
+    200: 'hsl(var(--warning-200) / <alpha-value>)',
+    300: 'hsl(var(--warning-300) / <alpha-value>)',
+    400: 'hsl(var(--warning-400) / <alpha-value>)',
+    500: 'hsl(var(--warning-500) / <alpha-value>)',
+    600: 'hsl(var(--warning-600) / <alpha-value>)',
+    700: 'hsl(var(--warning-700) / <alpha-value>)',
+    800: 'hsl(var(--warning-800) / <alpha-value>)',
+    900: 'hsl(var(--warning-900) / <alpha-value>)',
+    950: 'hsl(var(--warning-950) / <alpha-value>)',
+  },
+
+  success: {
+    DEFAULT: 'hsl(var(--success-500) / <alpha-value>)',
+    25: 'hsl(var(--success-25) / <alpha-value>)',
+    50: 'hsl(var(--success-50) / <alpha-value>)',
+    100: 'hsl(var(--success-100) / <alpha-value>)',
+    200: 'hsl(var(--success-200) / <alpha-value>)',
+    300: 'hsl(var(--success-300) / <alpha-value>)',
+    400: 'hsl(var(--success-400) / <alpha-value>)',
+    500: 'hsl(var(--success-500) / <alpha-value>)',
+    600: 'hsl(var(--success-600) / <alpha-value>)',
+    700: 'hsl(var(--success-700) / <alpha-value>)',
+    800: 'hsl(var(--success-800) / <alpha-value>)',
+    900: 'hsl(var(--success-900) / <alpha-value>)',
+    950: 'hsl(var(--success-950) / <alpha-value>)',
+  },
+}
+```
+
+**3. Create your own components using the tailwind classes and the colors from the theme.**
+
+❌ tailwind default suggestion:
+
+```html
+<input
+  type="email"
+  name="email"
+  id="email"
+  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+  placeholder="you@example.com"
+/>
+```
+
+✅ with our theme:
+
+```html
+<input
+  type="email"
+  name="email"
+  id="email"
+  className="block w-full rounded-md border-0 py-1.5 text-foreground shadow-sm ring-1 ring-inset ring-input placeholder:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-ring sm:text-sm sm:leading-6"
+  placeholder="you@example.com"
+/>
+```
+
+**Note:** Again, this is just a suggestion if you feel like its easier to skip css variables and just set it up directly in the tailwind config file please feel free to do so as long as it aligns with the untitled ui design system.
+
+## Theme provider
+
+To toggle between light and dark mode.
+
+**1. create a theme provider**
+
+`components/theme-provider.tsx`
+
+```tsx
+import { createContext, useContext, useEffect, useState } from 'react'
+
+type Theme = 'dark' | 'light' | 'system'
+
+type ThemeProviderProps = {
+  children: React.ReactNode
+  defaultTheme?: Theme
+  storageKey?: string
+}
+
+type ThemeProviderState = {
+  theme: Theme
+  setTheme: (theme: Theme) => void
+}
+
+const initialState: ThemeProviderState = {
+  theme: 'system',
+  setTheme: () => null,
+}
+
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
+
+export function ThemeProvider({
+  children,
+  defaultTheme = 'system',
+  storageKey = 'vite-ui-theme',
+  ...props
+}: ThemeProviderProps) {
+  const [theme, setTheme] = useState<Theme>(
+    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+  )
+
+  useEffect(() => {
+    const root = window.document.documentElement
+
+    root.classList.remove('light', 'dark')
+
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
+        ? 'dark'
+        : 'light'
+
+      root.classList.add(systemTheme)
+      return
+    }
+
+    root.classList.add(theme)
+  }, [theme])
+
+  const value = {
+    theme,
+    setTheme: (theme: Theme) => {
+      localStorage.setItem(storageKey, theme)
+      setTheme(theme)
+    },
+  }
+
+  return (
+    <ThemeProviderContext.Provider {...props} value={value}>
+      {children}
+    </ThemeProviderContext.Provider>
+  )
+}
+
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext)
+
+  if (context === undefined)
+    throw new Error('useTheme must be used within a ThemeProvider')
+
+  return context
+}
+```
+
+**2. Wrap your app with the theme provider**
+
+Add the ThemeProvider to your root layout.
+
+`App.tsx`
+
+```tsx
+import { ThemeProvider } from './components/theme-provider'
+
+function App() {
+  return (
+    // "light"  | "dark" | "system"
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      {children}
+    </ThemeProvider>
+  )
+}
+
+export default App
+```
+
+**3. Add a mode toggle**
+
+Place a mode toggle on your site to toggle between light and dark mode.
+
+`components/mode-toggle.tsx`
+
+```jsx
+import { useTheme } from './components/theme-provider'
+
+export function ModeToggle() {
+  const { setTheme } = useTheme()
+
+  return (
+    <div>
+      <button onClick={() => setTheme('light')}>Light</button>
+      <button onClick={() => setTheme('dark')}>Dark</button>
+    </div>
+  )
+}
+```
+
+## Conclusion
+
+As mention this is a suggestion, implement it in a way that works for you and your team as long as it looks like the design. I mean I'm just gonna tweak colors and borders on figma regardless of which approach you take.
+
+**Remember**
+
+- Suggestions to the design system are always welcome.
+
+- We shouldn't bee too rigid if you ask me. First of all it's a collaboration between TailwindUI and UntitledUI. And second of all you should see the design as a suggestion rather than a rule, for example, if there is a variant in Tailwind UI that seems to be better than the one in the design system we could probably use that instead, just make sure to rewrite the classes to the theme classes.
+
+- I'm lazy and I wont have time therefore there will not be designs for every single state and page. Take inspiration from the design when you create pages that are not in the design system.
+
+- Making pages responsive and accessible is hard man, don't do it yourself please. I cant stress this enough, u s e **❗️❗️[TailwindUI](https://tailwindui.com/) ❗️❗️** they've made every single component and page responsive and accessible.
+
+- Even though the I'm relatively chill about the design and how we go about it is important to be consistent and to follow the theme and use the variables. Don't go rouge and use random colors, spacings, radiuses(?) or sizes. I mean look at this monstrosity `bg-[#34ebd2]`🤮
+
+- Questions are welcomed and encouraged, mostly.
+
+May the odds be ever in your favor.
+
+## Resources
+
+- [Realtime Colors](https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Poppins-Poppins)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TailwindUI](https://tailwindui.com/)
+- [Headless UI](https://headlessui.dev/)
+- Figma
+  - [Colors](https://www.figma.com/file/J1fEd7yxC4PryvhqfIfHgZ/Skynet---Untitled-UI-Variables?type=design&node-id=1023-36350&mode=design)
+  - [Typography](https://www.figma.com/file/J1fEd7yxC4PryvhqfIfHgZ/Skynet---Untitled-UI-Variables?type=design&node-id=18-1951&mode=design)
+  - [Spacing](https://www.figma.com/file/J1fEd7yxC4PryvhqfIfHgZ/Skynet---Untitled-UI-Variables?type=design&node-id=5245-372829&mode=design)
