@@ -1,14 +1,14 @@
 import { FadeIn } from '@/components/display/FadeIn'
 import { Indent } from '@/components/display/Indent'
 import { Container } from '@/components/layout/Container'
-import meBeer from '@/public/me_peace.jpg'
+import meBeer from '@/public/me_doing_peace.png'
 import Image from 'next/image'
 
 export default async function Home() {
   return (
     <main>
       <FadeIn>
-        <Container className="flex flex-col gap-20 py-24  sm:py-32">
+        <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">
             <Indent />
             Jonathan Meeprong Dahnberg — a&nbsp;

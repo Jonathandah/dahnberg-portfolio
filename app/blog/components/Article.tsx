@@ -25,7 +25,7 @@ function Eyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm ',
+        'relative z-10 text-muted-foreground  flex items-center text-sm ',
         decorate && 'pl-3.5',
       )}
       {...props}
@@ -45,10 +45,10 @@ function Eyebrow<T extends React.ElementType = 'p'>({
 
 export function Article({ article }: ArticleProps) {
   return (
-    <article className="md:grid md:grid-cols-12 md:items-baseline">
-      <div className="group relative flex flex-col items-start md:col-span-8 ">
+    <article className="flex group relative justify-between">
+
         <div className="inline-flex items-center">
-          <h2 className="text-base font-semibold tracking-tight text-foreground">
+          <h2 className="text-lg font-semibold tracking-tight text-foreground">
             <Link href={`${article.href}`}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
               <span className="relative z-10">{article.title}</span>
@@ -57,21 +57,10 @@ export function Article({ article }: ArticleProps) {
           <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" />
         </div>
 
-        <Eyebrow as="time" dateTime={article.datetime} className="md:hidden">
+        <Eyebrow as="time" dateTime={article.datetime} className="">
           {formatDate(article.date)}
         </Eyebrow>
 
-        <p className="relative z-10 mt-2 text-sm text-foreground">
-          {article.description}
-        </p>
-      </div>
-      <Eyebrow
-        as="time"
-        dateTime={article.datetime}
-        className="col-span-2 mt-1 hidden md:block"
-      >
-        {formatDate(article.date)}
-      </Eyebrow>
     </article>
   )
 }
