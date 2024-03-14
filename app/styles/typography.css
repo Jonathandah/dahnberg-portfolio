@@ -110,8 +110,6 @@
     overflow-x: auto;
     margin-top: theme('spacing.10');
     margin-bottom: theme('spacing.10');
-    margin-left: calc(-1 * theme('spacing.6'));
-    margin-right: calc(-1 * theme('spacing.6'));
 
     @screen sm {
       margin-left: auto;
