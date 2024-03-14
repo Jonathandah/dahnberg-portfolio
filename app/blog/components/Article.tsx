@@ -1,7 +1,5 @@
-import { Badge } from '@/components/ui/badge'
 import { formatDate } from '@/lib/utils/formatDate'
 import { Article, MDXEntry } from '@/lib/utils/mdx'
-import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import Link from 'next/link'
 
@@ -48,16 +46,16 @@ export function Article({ article }: ArticleProps) {
     <article className="flex group relative justify-between">
 
         <div className="inline-flex items-center">
-          <h2 className="text-lg font-semibold tracking-tight text-foreground">
-            <Link href={`${article.href}`}>
+          <h2 className="text-lg font-semibold tracking-tight text-foreground line-clamp-1">
+            <Link className=' hover:underline' href={`${article.href}`}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
               <span className="relative z-10">{article.title}</span>
             </Link>
           </h2>
-          <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" />
+          {/* <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" /> */}
         </div>
 
-        <Eyebrow as="time" dateTime={article.datetime} className="">
+        <Eyebrow as="time" dateTime={article.datetime} className=" text-nowrap">
           {formatDate(article.date)}
         </Eyebrow>
 
