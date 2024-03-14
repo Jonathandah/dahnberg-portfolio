@@ -22,19 +22,11 @@ function Eyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 text-muted-foreground  items-center text-sm   inline-flex',
+        'relative z-10 text-muted-foreground  items-center text-sm text-nowrap   inline-flex',
         decorate && 'pl-3.5',
       )}
       {...props}
     >
-      {decorate && (
-        <span
-          className="absolute inset-y-0 left-0 flex items-center"
-          aria-hidden="true"
-        >
-          <span className="h-4 w-0.5 rounded-full bg-muted-foreground" />
-        </span>
-      )}
       {children}
     </Component>
   )
@@ -42,7 +34,7 @@ function Eyebrow<T extends React.ElementType = 'p'>({
 
 export function Article({ article }: ArticleProps) {
   return (
-    <article className="flex group relative justify-between">
+    <article className="flex relative justify-between">
 
         <div className="inline-flex items-center">
           <h2 className="text-lg font-semibold tracking-tight text-foreground line-clamp-1">
@@ -51,10 +43,9 @@ export function Article({ article }: ArticleProps) {
               <span className="relative z-10">{article.title}</span>
             </Link>
           </h2>
-          {/* <ArrowRightIcon className="h-4 w-4 text-foreground opacity-0 transition-all group-hover:ml-2 group-hover:opacity-100" /> */}
         </div>
 
-        <Eyebrow as="time" dateTime={article.datetime} className="text-nowrap">
+        <Eyebrow as="time" dateTime={article.datetime}>
           {article.date}
         </Eyebrow>
 

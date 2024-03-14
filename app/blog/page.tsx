@@ -13,11 +13,11 @@ export default async function BlogPage() {
         <Container className="py-20 sm:py-28">
           <header className="max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl ">
-              Writing on development and stuff
+              Writing on development and stuff.
             </h1>
-            <p className="mt-6 text-base font-medium ">
+            {/* <p className="mt-6 text-base font-medium ">
              Surprise surprise, another developer with too many opinions, well yes.
-            </p>
+            </p> */}
           </header>
 
           <div className="mt-16 sm:mt-20">
