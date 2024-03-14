@@ -33,7 +33,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body
         className={cn(
-          'min-h-dvh bg-background font-sans antialiased',
+          'min-h-dvh bg-background font-sans antialiased flex flex-col',
           IBMPlexMono.variable,
           LibreFranklin.variable,
         )}
