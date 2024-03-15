@@ -1,13 +1,13 @@
 import { FadeIn } from '@/components/display/FadeIn'
 import { Indent } from '@/components/display/Indent'
 import { Container } from '@/components/layout/Container'
-import meDoingPeaceImg from "@/public/me_doing_peace.png"
+import meDoingPeaceImg from '@/public/me_doing_peace.png'
 import Image from 'next/image'
 
 export default async function Home() {
   return (
     // Remove later when there is more content
-    <main className='md:overflow-y-hidden'>
+    <main className="md:overflow-y-hidden">
       <FadeIn>
         <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">

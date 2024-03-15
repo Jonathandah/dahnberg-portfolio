@@ -47,7 +47,7 @@ export default function BlogArticleWrapper({
     <>
       <div className="py-20 sm:py-28">
         <Container>
-          <FadeIn className='max-w-3xl mx-auto'>
+          <FadeIn className="max-w-3xl mx-auto">
             <Button
               asChild
               className="p-0 h-fit uppercase text-xs mb-20"

@@ -1,4 +1,3 @@
-
 /**
  *  Formats a date string to a human readable format
  * @param dateString - The date string to format
