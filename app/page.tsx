@@ -6,8 +6,7 @@ import Image from 'next/image'
 
 export default async function Home() {
   return (
-    // Remove later when there is more content
-    <main className="md:overflow-y-hidden">
+    <main>
       <FadeIn>
         <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28">
           <h1 className="text-3xl font-semibold text-primary sm:text-4xl">
