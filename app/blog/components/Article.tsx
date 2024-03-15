@@ -1,9 +1,9 @@
-import { Article, MDXEntry } from '@/lib/utils/mdx'
+import { IArticle , MDXEntry } from '@/lib/utils/mdx'
 import Link from 'next/link'
 import { Eyebrow } from './Eyebrow'
 
 export interface ArticleProps {
-  article: MDXEntry<Article>
+  article: MDXEntry<IArticle>
 }
 
 export function Article({ article }: ArticleProps) {

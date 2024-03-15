@@ -31,7 +31,7 @@ async function loadEntries<T extends { date: string }>(
 
 export type MDXEntry<T> = T & { href: string; metadata: T }
 
-export interface Article {
+export interface IArticle {
   title: string
   description: string
   date: string
@@ -45,5 +45,5 @@ export interface Article {
  * @returns The loaded articles
  */
 export function loadArticles() {
-  return loadEntries<Article>('blog', 'article')
+  return loadEntries<IArticle>('blog', 'article')
 }
