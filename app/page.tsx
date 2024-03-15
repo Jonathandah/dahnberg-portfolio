@@ -1,7 +1,7 @@
 import { FadeIn } from '@/components/display/FadeIn'
 import { Indent } from '@/components/display/Indent'
 import { Container } from '@/components/layout/Container'
-import meDoingPeaceImg from '@/public/me_doing_peace.png'
+import meDoingPeaceImg from '@/public/me_doing_peace.webp'
 import Image from 'next/image'
 
 export default async function Home() {
