@@ -4,7 +4,6 @@ import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/button'
-import { formatDate } from '@/lib/utils/formatDate'
 import { Article, MDXEntry } from '@/lib/utils/mdx'
 import { ArrowLeftIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
@@ -71,6 +70,7 @@ export default function BlogArticleWrapper({
                 dateTime={article.datetime}
                 className="order-first text-sm text-foreground"
               >
+                {/* Use formatDate when you have time to fix it in mobile */}
                 {article.date}
               </time>
               <p className="mt-6 text-sm font-semibold text-foreground">

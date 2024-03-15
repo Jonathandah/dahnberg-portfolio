@@ -9,14 +9,17 @@ import {
 import Image, { type ImageProps } from 'next/image'
 import { useRef } from 'react'
 
-const MotionImage = motion(Image)
-
-export function GrayscaleTransitionImage(
-  props: Pick<
+interface GrayscaleTransitionImageProps
+  extends Pick<
     ImageProps,
     'src' | 'quality' | 'className' | 'sizes' | 'priority'
-  > & { alt?: string },
-) {
+  > {
+  alt?: string
+}
+
+const MotionImage = motion(Image)
+
+export function GrayscaleTransitionImage(props: GrayscaleTransitionImageProps) {
   let ref = useRef<React.ElementRef<'div'>>(null)
   let { scrollYProgress } = useScroll({
     target: ref,

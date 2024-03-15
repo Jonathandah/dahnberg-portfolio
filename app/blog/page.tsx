@@ -1,6 +1,5 @@
 import { Article } from './components/Article'
 import { FadeIn } from '@/components/display/FadeIn'
-import { Indent } from '@/components/display/Indent'
 import { Container } from '@/components/layout/Container'
 import { loadArticles } from '@/lib/utils/mdx'
 
@@ -15,9 +14,6 @@ export default async function BlogPage() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl ">
               Writing on development and stuff.
             </h1>
-            {/* <p className="mt-6 text-base font-medium ">
-             Surprise surprise, another developer with too many opinions, well yes.
-            </p> */}
           </header>
 
           <div className="mt-16 sm:mt-20">

@@ -1,35 +1,9 @@
 import { Article, MDXEntry } from '@/lib/utils/mdx'
-import clsx from 'clsx'
 import Link from 'next/link'
+import { Eyebrow } from './Eyebrow'
 
 export interface ArticleProps {
   article: MDXEntry<Article>
-}
-
-function Eyebrow<T extends React.ElementType = 'p'>({
-  as,
-  decorate = false,
-  className,
-  children,
-  ...props
-}: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'decorate'> & {
-  as?: T
-  decorate?: boolean
-}) {
-  let Component = as ?? 'p'
-
-  return (
-    <Component
-      className={clsx(
-        className,
-        'relative z-10 text-muted-foreground  items-center text-sm text-nowrap   inline-flex',
-        decorate && 'pl-3.5',
-      )}
-      {...props}
-    >
-      {children}
-    </Component>
-  )
 }
 
 export function Article({ article }: ArticleProps) {
@@ -45,7 +19,8 @@ export function Article({ article }: ArticleProps) {
           </h2>
         </div>
 
-        <Eyebrow as="time" dateTime={article.datetime}>
+      <Eyebrow as="time" dateTime={article.datetime}>
+        {/* use formatDate when you have time to fix it in mobile */}
           {article.date}
         </Eyebrow>
 

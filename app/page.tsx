@@ -1,7 +1,7 @@
 import { FadeIn } from '@/components/display/FadeIn'
 import { Indent } from '@/components/display/Indent'
 import { Container } from '@/components/layout/Container'
-import meBeer from '@/public/me_doing_peace.png'
+import meDoingPeaceImg from "@/public/me_doing_peace.png"
 import Image from 'next/image'
 
 export default async function Home() {
@@ -18,9 +18,9 @@ export default async function Home() {
           </h1>
           <Image
             className="w-56 h-auto grayscale md:w-72"
-            src={meBeer}
+            src={meDoingPeaceImg}
             priority
-            alt="Me drinking beer"
+            alt="Me doing a peace sign"
           />
           <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
             <Indent />

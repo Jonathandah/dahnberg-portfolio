@@ -1,5 +1,12 @@
 import glob from 'fast-glob'
 
+/**
+ * Load all MDX entries from a directory
+ * @param directory - The directory to load the entries from
+ * @param metaName - The name of the metadata export
+ * @returns { href: string; metadata: T } - The loaded entries
+ */
+
 async function loadEntries<T extends { date: string }>(
   directory: string,
   metaName: string,
@@ -33,6 +40,10 @@ export interface Article {
   author: string
 }
 
+/**
+ * Load all articles from the blog directory
+ * @returns The loaded articles
+ */
 export function loadArticles() {
   return loadEntries<Article>('blog', 'article')
 }
