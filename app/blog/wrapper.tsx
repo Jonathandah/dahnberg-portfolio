@@ -4,7 +4,7 @@ import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/button'
-import { Article, MDXEntry } from '@/lib/utils/mdx'
+import { IArticle, MDXEntry } from '@/lib/utils/mdx'
 import { ArrowLeftIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
@@ -13,7 +13,7 @@ export default function BlogArticleWrapper({
   article,
   children,
 }: {
-  article: MDXEntry<Article>
+  article: MDXEntry<IArticle>
   children: React.ReactNode
 }) {
   const [isScrollButtonVisible, setIsScrollButtonVisible] =
