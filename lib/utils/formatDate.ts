@@ -1,7 +1,7 @@
 /**
  *  Formats a date string to a human readable format
  * @param dateString - The date string to format
- * @returns The formatted date string
+ * @returns The formatted date
  */
 export function formatDate(dateString: string) {
   let parts = dateString.split('-')
