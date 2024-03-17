@@ -7,7 +7,11 @@ import { Button } from '@/components/ui/button'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
 import { ArrowLeftIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
+function scrollToTop() {
+  window?.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 export default function BlogArticleWrapper({
   article,
@@ -16,30 +20,25 @@ export default function BlogArticleWrapper({
   article: MDXEntry<IArticle>
   children: React.ReactNode
 }) {
-  const [isScrollButtonVisible, setIsScrollButtonVisible] =
-    React.useState(false)
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false)
 
   useEffect(() => {
-    if (window?.scrollY > window?.innerHeight) {
-      setIsScrollButtonVisible(true)
-    }
-
-    window?.addEventListener('scroll', () => {
+    function showScrollButton() {
       if (window?.scrollY > window?.innerHeight) {
         setIsScrollButtonVisible(true)
       } else {
         setIsScrollButtonVisible(false)
       }
-    })
+    }
+
+    if (window?.scrollY > window?.innerHeight) {
+      setIsScrollButtonVisible(true)
+    }
+
+    window?.addEventListener('scroll', showScrollButton)
 
     return () => {
-      window?.removeEventListener('scroll', () => {
-        if (window?.scrollY > window?.innerHeight) {
-          setIsScrollButtonVisible(true)
-        } else {
-          setIsScrollButtonVisible(false)
-        }
-      })
+      window?.removeEventListener('scroll', showScrollButton)
     }
   }, [])
 
@@ -70,7 +69,7 @@ export default function BlogArticleWrapper({
                 dateTime={article.datetime}
                 className="order-first text-sm text-foreground"
               >
-                {/* Use formatDate when you have time to fix it in mobile */}
+                {/* TODO: Use formatDate when you have time to fix it in mobile */}
                 {article.date}
               </time>
               <p className="mt-6 text-sm font-semibold text-foreground">
@@ -87,16 +86,8 @@ export default function BlogArticleWrapper({
 
       <footer className="fixed bottom-0 right-0 w-full ">
         <div className="flex items-center justify-end h-16 px-4 mx-auto sm:px-6 lg:px-8">
-          {/* scroll to top */}
-
           {isScrollButtonVisible && (
-            <Button
-              onClick={() => {
-                window?.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-              variant="outline"
-              size="icon"
-            >
+            <Button onClick={scrollToTop} variant="outline" size="icon">
               <ArrowUpIcon className="w-4 h-4" />
             </Button>
           )}
