@@ -6,4 +6,5 @@ module.exports = {
     'prettier-plugin-tailwindcss',
     '@trivago/prettier-plugin-sort-imports',
   ],
+  tailwindFunctions: ['cn', 'tailwindMerge', 'clsx'],
 }
