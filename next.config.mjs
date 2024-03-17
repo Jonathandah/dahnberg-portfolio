@@ -3,6 +3,7 @@ import nextMDX from '@next/mdx'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
+import million from 'million/compiler'
 import * as path from 'path'
 import { recmaImportImages } from 'recma-import-images'
 import remarkGfm from 'remark-gfm'
@@ -25,13 +26,24 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 }
 
+const millionConfig = {
+  auto: true, // if you're using RSC: auto: { rsc: true },
+}
+
+/**
+ * This function is a remark plugin that adds a layout to the MDX file
+ * @param {string} source - The source of the layout
+ * @param {string} metaName - The name of the meta prop
+ * @returns {import('unified').Plugin}
+ */
+
 function remarkMDXLayout(source, metaName) {
-  let parser = Parser.extend(jsx())
-  let parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
+  const parser = Parser.extend(jsx())
+  const parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
 
   return (tree) => {
-    let imp = `import _Layout from '${source}'`
-    let exp = `export default function Layout(props) {
+    const imp = `import _Layout from '${source}'`
+    const exp = `export default function Layout(props) {
       return <_Layout {...props} ${metaName}={${metaName}} />
     }`
 
@@ -51,11 +63,11 @@ function remarkMDXLayout(source, metaName) {
 }
 
 export default async function config() {
-  let highlighter = await shiki.getHighlighter({
+  const highlighter = await shiki.getHighlighter({
     theme: 'css-variables',
   })
 
-  let withMDX = nextMDX({
+  const withMDX = nextMDX({
     extension: /\.mdx$/,
     options: {
       recmaPlugins: [recmaImportImages],
@@ -84,5 +96,6 @@ export default async function config() {
     },
   })
 
-  return withMDX(nextConfig)
+  // Note: Million is compiler to make react faster. For now only works components inside /app
+  return million.next(withMDX(nextConfig), millionConfig)
 }
