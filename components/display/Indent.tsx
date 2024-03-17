@@ -5,5 +5,7 @@ interface IndentProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {}
 
 export function Indent({ className, ...props }: IndentProps) {
-  return <span aria-hidden className={cn('mr-9 sm:mr-20', className)}  {...props} />
+  return (
+    <span aria-hidden className={cn('mr-9 sm:mr-20', className)} {...props} />
+  )
 }
