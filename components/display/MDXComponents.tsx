@@ -9,7 +9,7 @@ export const MDXComponents = {
     return (
       <div
         className={cn(
-          'rounded-4xl group isolate my-10 overflow-hidden bg-background max-sm:-mx-6',
+          'rounded-4xl group isolate my-10 overflow-hidden bg-background',
           className,
         )}
       >
