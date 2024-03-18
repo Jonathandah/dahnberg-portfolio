@@ -3,9 +3,18 @@
 import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
 import { Container } from '@/components/layout/Container'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
+import { formatDate } from '@/lib/utils/formatDate'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
-import { ArrowLeftIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
+import { ArrowUpIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
@@ -46,40 +55,35 @@ export default function BlogArticleWrapper({
     <>
       <div className="py-20 sm:py-28">
         <Container>
-          <FadeIn className="max-w-3xl mx-auto">
-            <Button
-              asChild
-              className="p-0 h-fit uppercase text-xs mb-20"
-              variant="text"
-            >
-              <Link href="/blog">
-                <ArrowLeftIcon className="w-4 h-4 mr-2" />
-                Back
-              </Link>
-            </Button>
-          </FadeIn>
-        </Container>
-        <Container>
-          <FadeIn>
-            <header className="flex flex-col max-w-3xl mx-auto text-center">
-              <h1 className="font-display mt-6 text-5xl font-medium tracking-tight text-foreground [text-wrap:balance] sm:text-6xl">
+          <FadeIn className="space-y-6">
+            <header className="flex flex-col max-w-3xl mx-auto  space-y-6">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild href="/components">
+                      <Link href="/blog">Blog</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>/</BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>{article.title}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+
+              <h1 className="font-display text-4xl font-bold [text-wrap:balance] sm:text-5xl ">
                 {article.title}
               </h1>
               <time
                 dateTime={article.datetime}
-                className="order-first text-sm text-foreground"
+                className="text-muted-foreground text-sm"
               >
                 {/* TODO: Use formatDate when you have time to fix it in mobile */}
-                {article.date}
+                {formatDate(new Date(article.datetime))}
               </time>
-              <p className="mt-6 text-sm font-semibold text-foreground">
-                by {article.author}
-              </p>
             </header>
 
-            <MDXComponents.wrapper className="mt-24 sm:mt-32">
-              {children}
-            </MDXComponents.wrapper>
+            <MDXComponents.wrapper>{children}</MDXComponents.wrapper>
           </FadeIn>
         </Container>
       </div>
