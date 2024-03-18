@@ -6,7 +6,7 @@ import glob from 'fast-glob'
  * @param metaName - The name of the metadata export
  * @returns The loaded entries
  */
-async function loadEntries<T extends { date: string }>(
+async function loadEntries<T extends { datetime: string }>(
   directory: string,
   metaName: string,
 ): Promise<Array<MDXEntry<T>>> {
@@ -25,7 +25,7 @@ async function loadEntries<T extends { date: string }>(
         },
       ),
     )
-  ).sort((a, b) => b.date.localeCompare(a.date))
+  ).sort((a, b) => b.datetime.localeCompare(a.datetime))
 }
 
 export type MDXEntry<T> = T & { href: string; metadata: T }
@@ -33,7 +33,6 @@ export type MDXEntry<T> = T & { href: string; metadata: T }
 export interface IArticle {
   title: string
   description: string
-  date: string
   datetime: string
   category: string
   author: string
