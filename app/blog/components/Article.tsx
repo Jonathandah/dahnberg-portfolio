@@ -1,4 +1,5 @@
 import { Eyebrow } from './Eyebrow'
+import { formatDate } from '@/lib/utils/formatDate'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
 import Link from 'next/link'
 
@@ -20,7 +21,7 @@ export function Article({ article }: ArticleProps) {
 
       <Eyebrow as="time" dateTime={article.datetime}>
         {/* TODO: use formatDate when you have time to fix it in mobile */}
-        {article.date}
+        {formatDate(new Date(article.datetime))}
       </Eyebrow>
     </article>
   )

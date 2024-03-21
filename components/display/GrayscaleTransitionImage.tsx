@@ -35,7 +35,7 @@ export function GrayscaleTransitionImage(props: GrayscaleTransitionImageProps) {
         className="absolute top-0 left-0 w-full transition duration-300 opacity-0 pointer-events-none group-hover:opacity-100"
         aria-hidden="true"
       >
-        <Image alt="" {...props} />
+        <Image priority alt="" {...props} />
       </div>
     </div>
   )

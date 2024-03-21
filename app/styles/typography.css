@@ -1,6 +1,6 @@
 .typography {
-  /* font-size: theme('fontSize.xl');
-  line-height: theme('fontSize.xl[1].lineHeight'); */
+  font-size: theme('fontSize.xl');
+  line-height: theme('fontSize.xl[1].lineHeight');
 
   /* Syntax highlighter */
   --shiki-color-text: theme('colors.white');
@@ -21,20 +21,20 @@
 
   /* Headings */
   :where(h2) {
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
     font-family: theme('fontFamily.mono');
     font-variation-settings: theme('fontFamily.mono[1]');
-    /* font-size: theme('fontSize.2xl'); */
-    /* line-height: theme('fontSize.2xl[1].lineHeight'); */
+    font-size: theme('fontSize.2xl');
+    line-height: theme('fontSize.2xl[1].lineHeight');
     margin-top: theme('spacing.16');
   }
 
   :where(h3) {
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
     font-family: theme('fontFamily.mono');
     font-variation-settings: theme('fontFamily.mono[1]');
-    /* font-size: theme('fontSize.xl');
-    line-height: theme('fontSize.xl[1].lineHeight'); */
+    font-size: theme('fontSize.xl');
+    line-height: theme('fontSize.xl[1].lineHeight');
     margin-top: theme('spacing.10');
   }
 
@@ -70,20 +70,20 @@
   }
 
   :where(ol > li)::marker {
-    /* font-size: theme('fontSize.base'); */
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-size: theme('fontSize.base');
+    font-weight: theme('fontWeight.semibold');
   }
 
   /* Tables */
   :where(table) {
     width: 100%;
     text-align: left;
-    /* font-size: theme('fontSize.base'); */
-    /* line-height: theme('fontSize.base[1].lineHeight'); */
+    font-size: theme('fontSize.base');
+    line-height: theme('fontSize.base[1].lineHeight');
   }
 
   :where(th) {
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
   }
 
   :where(thead th) {
@@ -120,7 +120,7 @@
   :where(pre code) {
     flex: none;
     padding: theme('padding.8') theme('padding.6');
-    /* font-size: theme('fontSize.base'); */
+    font-size: theme('fontSize.base');
     line-height: theme('lineHeight.8');
     color: theme('colors.white');
 
@@ -141,16 +141,16 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 0.15em;
     text-decoration-skip-ink: none;
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
   }
 
   :where(strong) {
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
   }
 
   :where(code:not(pre code)) {
     font-size: calc(18 / 20 * 1em);
-    /* font-weight: theme('fontWeight.semibold'); */
+    font-weight: theme('fontWeight.semibold');
 
     &::before,
     &::after {
@@ -181,6 +181,10 @@
 }
 
 .dark {
+  /* Code blocks */
+  :where(pre) {
+    background-color: theme('colors.neutral.900');
+  }
   .typography {
     --shiki-color-background: theme('colors.neutral.900');
   }
