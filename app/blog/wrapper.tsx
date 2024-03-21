@@ -79,7 +79,7 @@ export default function BlogArticleWrapper({
                 className="text-muted-foreground text-sm"
               >
                 {/* TODO: Use formatDate when you have time to fix it in mobile */}
-                {formatDate(new Date(article.datetime))}
+                {formatDate(new Date(article.datetime), true)}
               </time>
             </header>
 

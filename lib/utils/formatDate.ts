@@ -3,7 +3,7 @@
  * @param dateString - The date string to format
  * @returns The formatted date
  */
-export function formatDate(date: Date): string {
+export function formatDate(date: Date, withTime = false): string {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const month = months[date.getMonth()];
   const day = date.getDate();
@@ -21,5 +21,5 @@ export function formatDate(date: Date): string {
       timezoneString = `GMT${timezoneOffset}`;
   }
 
-  return `${month} ${day.toString().padStart(2, '0')}, ${date.getFullYear()} • ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${timezoneString}`;
+  return `${month} ${day.toString().padStart(2, '0')}, ${date.getFullYear()} ${withTime ? `• ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${timezoneString}` : ''}`;
 }
