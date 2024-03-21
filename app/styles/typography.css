@@ -181,6 +181,10 @@
 }
 
 .dark {
+  /* Code blocks */
+  :where(pre) {
+    background-color: theme('colors.neutral.900');
+  }
   .typography {
     --shiki-color-background: theme('colors.neutral.900');
   }
