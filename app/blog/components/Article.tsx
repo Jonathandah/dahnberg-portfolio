@@ -1,5 +1,5 @@
-import { formatDate } from '@/lib/utils/formatDate'
 import { Eyebrow } from './Eyebrow'
+import { formatDate } from '@/lib/utils/formatDate'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
 import Link from 'next/link'
 
