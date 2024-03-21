@@ -9,7 +9,7 @@ export interface ArticleProps {
 
 export function Article({ article }: ArticleProps) {
   return (
-    <article className="flex relative justify-between">
+    <article className="flex relative justify-between gap-6">
       <div className="inline-flex items-center">
         <h2 className="text-lg font-semibold tracking-tight text-foreground line-clamp-1">
           <Link className=" hover:underline" href={`${article.href}`}>
