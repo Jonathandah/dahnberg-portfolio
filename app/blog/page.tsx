@@ -1,6 +1,7 @@
 import { Article } from './components/Article'
 import { FadeIn } from '@/components/display/FadeIn'
 import { Container } from '@/components/layout/Container'
+import { HomeNavbar } from '@/components/layout/HomeNavbar'
 import { loadArticles } from '@/lib/utils/mdx'
 
 export default async function BlogPage() {
@@ -8,10 +9,11 @@ export default async function BlogPage() {
 
   return (
     <main>
+      <HomeNavbar />
       <FadeIn>
         <Container className="py-20 sm:py-28">
           <header className="max-w-2xl">
-            <h1 className="text-3xl font-bold  sm:text-4xl ">
+            <h1 className="text-3xl font-bold  sm:text-4xl dark:text-muted-foreground ">
               Writing on development and stuff.
             </h1>
           </header>

@@ -2,20 +2,12 @@
 
 import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
+import { BackNavbar } from '@/components/layout/BackNavbar'
 import { Container } from '@/components/layout/Container'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils/formatDate'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
 import { ArrowUpIcon } from '@heroicons/react/20/solid'
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 function scrollToTop() {
@@ -53,40 +45,12 @@ export default function BlogArticleWrapper({
 
   return (
     <>
+      <BackNavbar backTo="/blog" backText="Back" />
       <div className="py-20 sm:py-28">
         <Container>
           <FadeIn className="space-y-6">
             <header className="flex flex-col max-w-3xl mx-auto  space-y-6">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild href="/components">
-                      <Link href="/blog">Blog</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-slash"
-                    >
-                      <path d="M22 2 2 22" />
-                    </svg>
-                  </BreadcrumbSeparator>
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>{article.title}</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-
-              <h1 className="font-display text-4xl font-bold [text-wrap:balance] sm:text-5xl ">
+              <h1 className="font-display text-4xl font-bold [text-wrap:balance] sm:text-5xl dark:text-muted-foreground">
                 {article.title}
               </h1>
               <time
@@ -94,7 +58,7 @@ export default function BlogArticleWrapper({
                 className="text-muted-foreground text-sm"
               >
                 {/* TODO: Use formatDate when you have time to fix it in mobile */}
-                {formatDate(new Date(article.datetime), true)}
+                {formatDate(new Date(article.datetime))}
               </time>
             </header>
 
@@ -106,8 +70,15 @@ export default function BlogArticleWrapper({
       <footer className="fixed bottom-0 right-0 w-full ">
         <div className="flex items-center justify-end h-16 px-4 mx-auto sm:px-6 lg:px-8">
           {isScrollButtonVisible && (
-            <Button onClick={scrollToTop} variant="outline" size="icon">
-              <ArrowUpIcon className="w-4 h-4" />
+            <Button
+              variant="text"
+              onClick={scrollToTop}
+              className="group -my-4 py-2 flex flex-col hover:bg-background  translate-x-0 transform cursor-pointer select-none items-center gap-1 px-4 text-xl  hover:-translate-y-2 focus:-translate-y-2  motion-safe:transition-all"
+            >
+              <span className="flex-shrink-0 translate-y-[1px]">
+                <ArrowUpIcon className="w-4 h-4" />
+              </span>
+              <span className="sr-only">Back to top</span>
             </Button>
           )}
         </div>
