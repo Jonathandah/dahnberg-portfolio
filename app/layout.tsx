@@ -1,5 +1,5 @@
 import './styles/tailwind.css'
-import { Navbar } from '@/components/layout/Navbar'
+import { Noise } from '@/components/display/Noise'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils/cn'
 import type { Metadata } from 'next'
@@ -42,7 +42,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
+          <Noise />
           {children}
         </ThemeProvider>
       </body>
