@@ -1,5 +1,5 @@
 .typography {
-  font-size: theme('fontSize.xl');
+  /* font-size: theme('fontSize.xl'); */
   line-height: theme('fontSize.xl[1].lineHeight');
 
   /* Syntax highlighter */
@@ -22,7 +22,7 @@
   /* Headings */
   :where(h2) {
     font-weight: theme('fontWeight.semibold');
-    font-family: theme('fontFamily.mono');
+    /* font-family: theme('fontFamily.mono'); */
     font-variation-settings: theme('fontFamily.mono[1]');
     font-size: theme('fontSize.2xl');
     line-height: theme('fontSize.2xl[1].lineHeight');
@@ -31,7 +31,7 @@
 
   :where(h3) {
     font-weight: theme('fontWeight.semibold');
-    font-family: theme('fontFamily.mono');
+    /* font-family: theme('fontFamily.mono'); */
     font-variation-settings: theme('fontFamily.mono[1]');
     font-size: theme('fontSize.xl');
     line-height: theme('fontSize.xl[1].lineHeight');
@@ -186,6 +186,7 @@
     background-color: theme('colors.neutral.900');
   }
   .typography {
+    color: hsl(var(--muted-foreground));
     --shiki-color-background: theme('colors.neutral.900');
   }
 }
