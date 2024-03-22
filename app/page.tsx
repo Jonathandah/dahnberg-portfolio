@@ -11,7 +11,7 @@ export default async function Home() {
       <HomeNavbar />
       <FadeIn>
         <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28">
-          <h1 className="text-3xl font-semibold dark:text-muted-foreground sm:text-4xl">
+          <h1 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
             <Indent />
             Jonathan Meeprong Dahnberg — a&nbsp;
             <span className="underline text-foreground">frontend developer</span>
@@ -23,7 +23,7 @@ export default async function Home() {
             priority
             alt="Me doing a peace sign"
           />
-          <h2 className="text-3xl font-semibold dark:text-muted-foreground sm:text-4xl">
+          <h2 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
             <Indent />
             Who am I? — Sorry to disappoint you. I’m just a regular guy based
             in&nbsp;

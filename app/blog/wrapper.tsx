@@ -49,8 +49,8 @@ export default function BlogArticleWrapper({
       <div className="py-20 sm:py-28">
         <Container>
           <FadeIn className="space-y-6">
-            <header className="flex flex-col max-w-3xl mx-auto  space-y-6">
-              <h1 className="font-display text-4xl font-bold [text-wrap:balance] sm:text-5xl dark:text-muted-foreground">
+            <header className="flex flex-col max-w-3xl mx-auto space-y-2">
+              <h1 className="font-display text-2xl font-bold [text-wrap:balance] sm:text-3xl dark:text-muted-foreground">
                 {article.title}
               </h1>
               <time

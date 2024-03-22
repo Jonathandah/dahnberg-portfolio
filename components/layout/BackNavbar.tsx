@@ -21,7 +21,7 @@ export function BackNavbar({ backTo, backText }: BackNavbarProps) {
             <span className="flex-shrink-0 translate-y-[1px]">
               <ArrowLeftIcon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
             </span>
-            <span className="text-sm ml-1 opacity-[0.01] group-hover:opacity-100 group-focus:opacity-100 motion-safe:transition-opacity">
+            <span className="text-xs font-medium ml-1 uppercase opacity-[0.01] group-hover:opacity-100 group-focus:opacity-100 motion-safe:transition-opacity">
               {backText}
             </span>
           </Link>
