@@ -23,7 +23,6 @@ export function Article({ article }: ArticleProps) {
             as="time"
             dateTime={article.datetime}
           >
-            {/* TODO: use formatDate when you have time to fix it in mobile */}
             {formatDate(new Date(article.datetime))}
           </Eyebrow>
         </div>

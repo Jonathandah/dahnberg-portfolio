@@ -25,7 +25,7 @@ export function HomeNavbar() {
           <FadeIn>
             <div className="flex flex-col items-start uppercase  px-4 py-2 ">
               <Button
-                className="text-xs"
+                className="text-xs items-start"
                 asChild
                 variant="link"
                 size="no-padding"
@@ -40,7 +40,7 @@ export function HomeNavbar() {
               </Button>
 
               <Button
-                className="text-xs"
+                className="text-xs items-start"
                 asChild
                 variant="link"
                 size="no-padding"

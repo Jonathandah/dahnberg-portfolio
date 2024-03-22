@@ -57,7 +57,6 @@ export default function BlogArticleWrapper({
                 dateTime={article.datetime}
                 className="text-muted-foreground text-sm"
               >
-                {/* TODO: Use formatDate when you have time to fix it in mobile */}
                 {formatDate(new Date(article.datetime))}
               </time>
             </header>
@@ -78,7 +77,7 @@ export default function BlogArticleWrapper({
               <span className="flex-shrink-0 translate-y-[1px]">
                 <ArrowUpIcon className="w-4 h-4" />
               </span>
-              <span className="sr-only">Back to top</span>
+              <span className="sr-only">Scroll to top</span>
             </Button>
           )}
         </div>
