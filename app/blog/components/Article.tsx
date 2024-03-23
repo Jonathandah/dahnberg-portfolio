@@ -10,7 +10,7 @@ export interface ArticleProps {
 export function Article({ article }: ArticleProps) {
   return (
     <article className="flex relative justify-between gap-6">
-      <div className="group max-w-sm">
+      <div className="group">
         <div className=" inline-flex gap-2">
           <h2 className="font-bold transition  text-muted-foreground group-hover:text-foreground line-clamp-1">
             <Link href={`${article.href}`}>
@@ -19,7 +19,7 @@ export function Article({ article }: ArticleProps) {
             </Link>
           </h2>
           <Eyebrow
-            className="!text-xs font-thin"
+            className="!text-xs dark:font-thin"
             as="time"
             dateTime={article.datetime}
           >
