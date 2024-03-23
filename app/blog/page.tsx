@@ -11,21 +11,25 @@ export default async function BlogPage() {
     <main>
       <HomeNavbar />
       <FadeIn>
-        <Container className="py-20 sm:py-28">
-          <header className="max-w-2xl">
+        <Container className="pb-20 sm:pb-28">
+          <header className="max-w-2xl py-40">
             <h1 className="text-2xl font-bold  sm:text-3xl dark:text-muted-foreground ">
               Writing on development and stuff.
             </h1>
           </header>
 
-          <div className="mt-16 sm:mt-20">
-            <div className="flex flex-col max-w-4xl space-y-20">
+          <div className="">
+            <ul className="grid grid-cols-12">
               {articles.map((article) => (
-                <FadeIn key={article.datetime}>
+                <FadeIn
+                  as="li"
+                  className="col-span-full md:col-span-6 pr-4 md:pr-10 pb-10"
+                  key={article.datetime}
+                >
                   <Article article={article} />
                 </FadeIn>
               ))}
-            </div>
+            </ul>
           </div>
         </Container>
       </FadeIn>
