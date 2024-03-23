@@ -20,22 +20,20 @@ export default async function BlogArticleWrapper({
       <BackNavbar backTo="/blog" backText="Back" />
 
       {/* MDX content */}
-      <Container className="max-w-3xl py-20 sm:py-28">
-        <FadeIn className="space-y-6">
-          <header className="flex flex-col mx-auto space-y-2">
-            <h1 className="text-2xl font-bold [text-wrap:balance] sm:text-3xl dark:text-muted-foreground">
-              {article.title}
-            </h1>
-            <time
-              dateTime={article.datetime}
-              className="text-muted-foreground text-xs"
-            >
-              {formatDate(new Date(article.datetime))}
-            </time>
-          </header>
+      <Container as={FadeIn} className="max-w-3xl py-20 sm:py-28 space-y-6">
+        <header className="flex flex-col mx-auto space-y-2">
+          <h1 className="text-2xl font-bold [text-wrap:balance] sm:text-3xl dark:text-muted-foreground">
+            {article.title}
+          </h1>
+          <time
+            dateTime={article.datetime}
+            className="text-muted-foreground text-xs"
+          >
+            {formatDate(new Date(article.datetime))}
+          </time>
+        </header>
 
-          <MDXComponents.wrapper>{children}</MDXComponents.wrapper>
-        </FadeIn>
+        <MDXComponents.wrapper>{children}</MDXComponents.wrapper>
       </Container>
 
       {/* Scroll  */}
