@@ -18,19 +18,16 @@ export default async function BlogPage() {
             </h1>
           </header>
 
-          <div className="">
-            <ul className="grid grid-cols-12">
-              {articles.map((article) => (
-                <FadeIn
-                  as="li"
-                  className="col-span-full md:col-span-6 pr-4 md:pr-10 pb-10"
-                  key={article.datetime}
-                >
-                  <Article article={article} />
-                </FadeIn>
-              ))}
-            </ul>
-          </div>
+          <ul className="grid grid-cols-12">
+            {articles.map((article) => (
+              <li
+                className="col-span-full md:col-span-6 pr-4 md:pr-10 pb-10"
+                key={article.datetime}
+              >
+                <Article article={article} />
+              </li>
+            ))}
+          </ul>
         </Container>
       </FadeIn>
     </main>
