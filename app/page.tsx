@@ -10,7 +10,7 @@ export default async function Home() {
     <main>
       <HomeNavbar />
       <FadeIn>
-        <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28">
+        <Container className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28 max-w-3xl">
           <h1 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
             <Indent />
             Jonathan Meeprong Dahnberg — a&nbsp;
