@@ -20,17 +20,17 @@ interface GrayscaleTransitionImageProps
 const MotionImage = motion(Image)
 
 export function GrayscaleTransitionImage(props: GrayscaleTransitionImageProps) {
-  let ref = React.useRef<React.ElementRef<'div'>>(null)
-  let { scrollYProgress } = useScroll({
+  const ref = React.useRef<React.ElementRef<'div'>>(null)
+  const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 65%', 'end 35%'],
   })
-  let grayscale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 1])
-  let filter = useMotionTemplate`grayscale(${grayscale})`
+  const grayscale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 1])
+  const filter: any = useMotionTemplate`grayscale(${grayscale})`
 
   return (
     <div ref={ref} className="relative group">
-      <MotionImage alt="" style={{ filter } as any} {...props} />
+      <MotionImage alt="" style={{ filter }} {...props} />
       <div
         className="absolute top-0 left-0 w-full transition duration-300 opacity-0 pointer-events-none group-hover:opacity-100"
         aria-hidden="true"

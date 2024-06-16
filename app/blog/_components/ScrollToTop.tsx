@@ -2,16 +2,16 @@
 
 import { BackButton } from '@/components/actions/BackButton'
 import { Container } from '@/components/layout/Container'
-import { useEffect, useState } from 'react'
+import * as React from 'react'
 
 function scrollToTop() {
   window?.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 export function ScrollToTop() {
-  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false)
-
-  useEffect(() => {
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = React.useState(false)
+  
+  React.useEffect(() => {
     function showScrollButton() {
       if (window?.scrollY > window?.innerHeight) {
         setIsScrollButtonVisible(true)

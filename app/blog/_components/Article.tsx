@@ -1,6 +1,6 @@
 import { Eyebrow } from './Eyebrow'
 import { formatDate } from '@/lib/utils/formatDate'
-import { IArticle, MDXEntry } from '@/lib/utils/mdx'
+import { type IArticle, type MDXEntry } from '@/lib/utils/mdx'
 import Link from 'next/link'
 
 export interface ArticleProps {
@@ -27,7 +27,7 @@ export function Article({ article }: ArticleProps) {
           </Eyebrow>
         </div>
 
-        <p className=" font-light text-muted-foreground transition group-hover:text-foreground ">
+        <p className="font-light text-muted-foreground transition group-hover:text-foreground ">
           {article.description}
         </p>
       </div>

@@ -1,6 +1,7 @@
-import type { Config } from 'tailwindcss'
-
-const { fontFamily } = require('tailwindcss/defaultTheme')
+import tailwindCSSAspectRatio from '@tailwindcss/aspect-ratio'
+import { type Config } from 'tailwindcss'
+import tailwindCSSAnimate from 'tailwindcss-animate'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config = {
   darkMode: ['class'],
@@ -20,8 +21,8 @@ const config = {
       },
     },
     fontFamily: {
-      sans: ['var(--font-sans)', fontFamily.sans],
-      mono: ['var(--font-mono)', fontFamily.mono],
+      sans: ['var(--font-sans)', ...fontFamily.sans],
+      mono: ['var(--font-mono)', ...fontFamily.mono],
     },
     extend: {
       colors: {
@@ -81,10 +82,7 @@ const config = {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/aspect-ratio'),
-  ],
+  plugins: [tailwindCSSAnimate, tailwindCSSAspectRatio],
 } satisfies Config
 
 export default config

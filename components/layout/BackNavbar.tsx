@@ -1,7 +1,7 @@
 import { BackButton } from '../actions/BackButton'
 import { ModeToggle } from '../actions/ModeToggle'
 import { FadeIn } from '../display/FadeIn'
-import { Navbar, NavbarProps } from './Navbar'
+import { Navbar, type NavbarProps } from './Navbar'
 
 export interface BackNavbarProps extends NavbarProps {
   backTo: string

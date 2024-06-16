@@ -1,19 +1,21 @@
-import { ScrollToTop } from './components/ScrollToTop'
+import { ScrollToTop } from './_components/ScrollToTop'
 import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
 import { BackNavbar } from '@/components/layout/BackNavbar'
 import { Container } from '@/components/layout/Container'
 import { formatDate } from '@/lib/utils/formatDate'
-import { IArticle, MDXEntry } from '@/lib/utils/mdx'
+import { type IArticle, type MDXEntry } from '@/lib/utils/mdx'
 import * as React from 'react'
+
+export interface BlogArticleWrapperProps {
+  article: MDXEntry<IArticle>
+  children: React.ReactNode
+}
 
 export default async function BlogArticleWrapper({
   article,
   children,
-}: {
-  article: MDXEntry<IArticle>
-  children: React.ReactNode
-}) {
+}: BlogArticleWrapperProps) {
   return (
     <main>
       {/* Navbar */}
