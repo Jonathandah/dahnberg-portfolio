@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils/cn'
-import React from 'react'
+import * as React from 'react'
 
 interface IndentProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {}

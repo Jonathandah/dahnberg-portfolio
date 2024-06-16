@@ -23,15 +23,14 @@ export default async function Home() {
           className="w-56 h-auto grayscale md:w-72"
           src={meDoingPeaceImg}
           priority
-          alt="Me doing a peace sign"
+          alt="Me doing peace signs"
         />
         <h2 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
           <Indent />
           Who am I? — Sorry to disappoint you. I’m just a regular guy based
           in&nbsp;
           <span className="underline text-foreground">Malmö, Sweden</span>, who
-          nerds over fonts and colors. I mean, who doesn’t like a good old Libre
-          Franklin?
+          nerds over fonts and colors.
         </h2>
       </Container>
     </main>

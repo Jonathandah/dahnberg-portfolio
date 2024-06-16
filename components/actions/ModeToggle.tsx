@@ -3,7 +3,6 @@
 import { Button, ButtonProps } from '@/components/ui/button'
 import { cn } from '@/lib/utils/cn'
 import { useTheme } from 'next-themes'
-import * as React from 'react'
 
 export interface ModeToggleProps extends ButtonProps {}
 

@@ -5,7 +5,6 @@ import { Navbar } from './Navbar'
 import { cn } from '@/lib/utils/cn'
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import * as React from 'react'
 
 export function HomeNavbar() {
   return (
