@@ -7,7 +7,7 @@ import {
   useTransform,
 } from 'framer-motion'
 import Image, { type ImageProps } from 'next/image'
-import { useRef } from 'react'
+import * as React from 'react'
 
 interface GrayscaleTransitionImageProps
   extends Pick<
@@ -20,7 +20,7 @@ interface GrayscaleTransitionImageProps
 const MotionImage = motion(Image)
 
 export function GrayscaleTransitionImage(props: GrayscaleTransitionImageProps) {
-  let ref = useRef<React.ElementRef<'div'>>(null)
+  let ref = React.useRef<React.ElementRef<'div'>>(null)
   let { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 65%', 'end 35%'],

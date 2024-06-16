@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils/cn'
-import React from 'react'
+import * as React from 'react'
 
 interface ContainerProps<T extends React.ElementType> {
   as?: T

@@ -5,7 +5,7 @@ import { BackNavbar } from '@/components/layout/BackNavbar'
 import { Container } from '@/components/layout/Container'
 import { formatDate } from '@/lib/utils/formatDate'
 import { IArticle, MDXEntry } from '@/lib/utils/mdx'
-import React from 'react'
+import * as React from 'react'
 
 export default async function BlogArticleWrapper({
   article,
