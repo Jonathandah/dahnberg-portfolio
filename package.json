@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:prettier": "prettier . --write",
+    "format:eslint": "eslint --fix ."
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -43,9 +45,12 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/eslint": "^8.56.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
     "autoprefixer": "^10.4.18",
     "eslint": "^8",
     "eslint-config-next": "14.1.3",

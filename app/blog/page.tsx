@@ -1,4 +1,4 @@
-import { Article } from './components/Article'
+import { Article } from './_components/Article'
 import { FadeIn } from '@/components/display/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { HomeNavbar } from '@/components/layout/HomeNavbar'

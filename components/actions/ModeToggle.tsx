@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, ButtonProps } from '@/components/ui/button'
+import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/lib/utils/cn'
 import { useTheme } from 'next-themes'
 
@@ -11,9 +11,9 @@ export function ModeToggle({ className, ...props }: ModeToggleProps) {
 
   return (
     <Button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       variant="text"
       className={cn('uppercase text-xs text-muted-foreground', className)}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       {...props}
     >
       <span className="block  dark:hidden">Light -</span>
