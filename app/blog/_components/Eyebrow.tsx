@@ -13,7 +13,7 @@ export function Eyebrow<T extends React.ElementType = 'p'>({
   ...props
 }: EyebrowProps<T> &
   Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'decorate'>) {
-  const Component = as ?? 'p'
+  let Component = as ?? 'p'
 
   return (
     <Component
