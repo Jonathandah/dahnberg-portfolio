@@ -23,7 +23,7 @@ export default async function Home() {
           className="w-56 h-auto grayscale md:w-72"
           src={meDoingPeaceImg}
           priority
-          alt="Me doing a peace sign"
+          alt="Me doing peace signs"
         />
         <h2 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
           <Indent />
