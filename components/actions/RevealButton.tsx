@@ -4,25 +4,24 @@ import { ArrowLeftIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import * as React from 'react'
 
-export interface BackButtonProps extends ButtonProps {
+export interface RevealButtonProps extends ButtonProps {
   link?: boolean
   to?: string
   vertical?: boolean
 }
 
-export function BackButton({
+export function RevealButton({
   children,
   to = '/',
   vertical,
   className,
   ...props
-}: BackButtonProps) {
-  const Component: any = props.link ? Link : React.Fragment
-  const Icon = vertical ? ArrowUpIcon : ArrowLeftIcon
+}: RevealButtonProps) {
+  let Component: any = props.link ? Link : React.Fragment
+  let Icon = vertical ? ArrowUpIcon : ArrowLeftIcon
 
   return (
     <Button
-      {...props}
       variant="text"
       asChild={!!props.link}
       className={cn(
@@ -32,6 +31,7 @@ export function BackButton({
           : '-mx-4  hover:-translate-x-2  focus:-translate-x-2',
         className,
       )}
+      {...props}
     >
       <Component {...(props.link && { href: to })}>
         <span className="flex-shrink-0 translate-y-[1px]">

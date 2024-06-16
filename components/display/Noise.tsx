@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-const keyframesX = [
+let keyframesX = [
   '0%',
   '-5%',
   '-15%',
@@ -15,7 +15,7 @@ const keyframesX = [
   '-10%',
 ]
 
-const keyframesY = [
+let keyframesY = [
   '0%',
   '-10%',
   '5%',
@@ -29,18 +29,18 @@ const keyframesY = [
 ]
 
 export function Noise() {
-  const noiseRef = React.useRef<HTMLDivElement>(null)
+  let noiseRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    const noise = noiseRef.current
+    let noise = noiseRef.current
     if (!noise) return
-
 
     let i = 0
 
-    const interval = setInterval(() => {
-      noise.style.transform = `translateX(${keyframesX[i % keyframesX.length]
-        }) translateY(${keyframesY[i % keyframesY.length]})`
+    let interval = setInterval(() => {
+      noise.style.transform = `translateX(${
+        keyframesX[i % keyframesX.length]
+      }) translateY(${keyframesY[i % keyframesY.length]})`
 
       i++
     }, 50)

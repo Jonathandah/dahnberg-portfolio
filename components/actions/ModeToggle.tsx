@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes'
 export interface ModeToggleProps extends ButtonProps {}
 
 export function ModeToggle({ className, ...props }: ModeToggleProps) {
-  const { setTheme, theme } = useTheme()
+  let { setTheme, theme } = useTheme()
 
   return (
     <Button

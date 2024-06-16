@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn'
 
-interface EyebrowProps<T> {
+export interface EyebrowProps<T extends React.ElementType> {
   as?: T
   decorate?: boolean
 }
@@ -11,7 +11,8 @@ export function Eyebrow<T extends React.ElementType = 'p'>({
   className,
   children,
   ...props
-}: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'decorate'> & EyebrowProps<T>) {
+}: EyebrowProps<T> &
+  Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'decorate'>) {
   const Component = as ?? 'p'
 
   return (

@@ -9,7 +9,9 @@ import {
 import Image, { type ImageProps } from 'next/image'
 import * as React from 'react'
 
-interface GrayscaleTransitionImageProps
+let MotionImage = motion(Image)
+
+export interface GrayscaleTransitionImageProps
   extends Pick<
     ImageProps,
     'src' | 'quality' | 'className' | 'sizes' | 'priority'
@@ -17,20 +19,18 @@ interface GrayscaleTransitionImageProps
   alt?: string
 }
 
-const MotionImage = motion(Image)
-
 export function GrayscaleTransitionImage(props: GrayscaleTransitionImageProps) {
-  const ref = React.useRef<React.ElementRef<'div'>>(null)
-  const { scrollYProgress } = useScroll({
+  let ref = React.useRef<React.ElementRef<'div'>>(null)
+  let { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 65%', 'end 35%'],
   })
-  const grayscale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 1])
-  const filter: any = useMotionTemplate`grayscale(${grayscale})`
+  let grayscale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 1])
+  let filter = useMotionTemplate`grayscale(${grayscale})`
 
   return (
     <div ref={ref} className="relative group">
-      <MotionImage alt="" style={{ filter }} {...props} />
+      <MotionImage alt="" style={{ filter } as any} {...props} />
       <div
         className="absolute top-0 left-0 w-full transition duration-300 opacity-0 pointer-events-none group-hover:opacity-100"
         aria-hidden="true"

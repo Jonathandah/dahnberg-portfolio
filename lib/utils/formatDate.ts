@@ -4,7 +4,7 @@
  * @returns The formatted date
  */
 export function formatDate(date: Date, withTime = false): string {
-  const months = [
+  let months = [
     'Jan',
     'Feb',
     'Mar',
@@ -18,11 +18,11 @@ export function formatDate(date: Date, withTime = false): string {
     'Nov',
     'Dec',
   ]
-  const month = months[date.getMonth()]
-  const day = date.getDate()
-  const hours = date.getHours()
-  const minutes = date.getMinutes()
-  const timezoneOffset = date.getTimezoneOffset() / 60 // Get timezone offset in hours
+  let month = months[date.getMonth()]
+  let day = date.getDate()
+  let hours = date.getHours()
+  let minutes = date.getMinutes()
+  let timezoneOffset = date.getTimezoneOffset() / 60 // Get timezone offset in hours
   let timezoneString = ''
 
   // Adjust timezone display for Central European Time (CET) or Central European Summer Time (CEST)

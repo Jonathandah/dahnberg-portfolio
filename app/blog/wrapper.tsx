@@ -1,7 +1,7 @@
+import { ArticleNavbar } from './_components/ArticleNavbar'
 import { ScrollToTop } from './_components/ScrollToTop'
 import { FadeIn } from '@/components/display/FadeIn'
 import { MDXComponents } from '@/components/display/MDXComponents'
-import { BackNavbar } from '@/components/layout/BackNavbar'
 import { Container } from '@/components/layout/Container'
 import { formatDate } from '@/lib/utils/formatDate'
 import { type IArticle, type MDXEntry } from '@/lib/utils/mdx'
@@ -19,7 +19,7 @@ export default async function BlogArticleWrapper({
   return (
     <main>
       {/* Navbar */}
-      <BackNavbar backTo="/blog" backText="Back" />
+      <ArticleNavbar backTo="/blog" backButtonText="Back" />
 
       {/* MDX content */}
       <Container as={FadeIn} className="max-w-3xl py-20 sm:py-28 space-y-6">
