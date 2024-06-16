@@ -7,13 +7,13 @@ import Image from 'next/image'
 
 export default async function Home() {
   return (
-    <main>
+    <main className='overflow-hidden'>
       <HomeNavbar />
       <Container
         as={FadeIn}
-        className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28 max-w-3xl"
+        className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28 max-w-2xl"
       >
-        <h1 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
+        <h1 className="text-xl font-medium dark:text-muted-foreground sm:text-2xl">
           <Indent />
           Jonathan Meeprong Dahnberg — a&nbsp;
           <span className="underline text-foreground">frontend developer</span>
@@ -25,7 +25,7 @@ export default async function Home() {
           priority
           alt="Me doing peace signs"
         />
-        <h2 className="text-2xl font-semibold dark:text-muted-foreground sm:text-3xl">
+        <h2 className="text-xl font-medium dark:text-muted-foreground sm:text-2xl">
           <Indent />
           Who am I? — Sorry to disappoint you. I’m just a regular guy based
           in&nbsp;

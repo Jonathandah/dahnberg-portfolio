@@ -12,7 +12,7 @@ export default async function BlogPage() {
       <HomeNavbar />
       <Container as={FadeIn} className="pb-20 sm:pb-28">
         <header className="max-w-2xl py-40">
-          <h1 className="text-2xl font-bold  sm:text-3xl dark:text-muted-foreground ">
+          <h1 className="text-xl font-medium sm:text-2xl dark:text-foreground">
             Writing on development and stuff.
           </h1>
         </header>

@@ -23,6 +23,7 @@ const config = {
     fontFamily: {
       sans: ['var(--font-sans)', ...fontFamily.sans],
       mono: ['var(--font-mono)', ...fontFamily.mono],
+      serif: ['var(--font-serif)', ...fontFamily.serif],
     },
     extend: {
       colors: {
