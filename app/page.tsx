@@ -30,8 +30,7 @@ export default async function Home() {
           Who am I? — Sorry to disappoint you. I’m just a regular guy based
           in&nbsp;
           <span className="underline text-foreground">Malmö, Sweden</span>, who
-          nerds over fonts and colors. I mean, who doesn’t like a good old Libre
-          Franklin?
+          nerds over fonts and colors.
         </h2>
       </Container>
     </main>
