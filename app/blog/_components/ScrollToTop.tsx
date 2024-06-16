@@ -1,6 +1,6 @@
 'use client'
 
-import { BackButton } from '@/components/actions/BackButton'
+import { RevealButton } from '@/components/actions/RevealButton'
 import { Container } from '@/components/layout/Container'
 import * as React from 'react'
 
@@ -9,8 +9,8 @@ function scrollToTop() {
 }
 
 export function ScrollToTop() {
-  const [isScrollButtonVisible, setIsScrollButtonVisible] = React.useState(false)
-  
+  let [isScrollButtonVisible, setIsScrollButtonVisible] = React.useState(false)
+
   React.useEffect(() => {
     function showScrollButton() {
       if (window?.scrollY > window?.innerHeight) {
@@ -34,13 +34,13 @@ export function ScrollToTop() {
   return (
     <Container className="flex items-center justify-end h-16 max-w-none fixed bottom-0 right-0 w-full">
       {isScrollButtonVisible && (
-        <BackButton
+        <RevealButton
           className="hover:bg-background gap-0"
           vertical
           onClick={scrollToTop}
         >
           <span className="sr-only">Scroll to top</span>
-        </BackButton>
+        </RevealButton>
       )}
     </Container>
   )
