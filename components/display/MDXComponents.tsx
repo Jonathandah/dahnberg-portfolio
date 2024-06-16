@@ -1,7 +1,7 @@
 import { GrayscaleTransitionImage } from './GrayscaleTransitionImage'
 import { cn } from '@/lib/utils/cn'
 
-export const MDXComponents = {
+export let MDXComponents = {
   img: function Img({
     className,
     ...props
