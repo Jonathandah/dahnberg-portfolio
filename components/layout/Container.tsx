@@ -13,7 +13,7 @@ export function Container<T extends React.ElementType = 'div'>({
   children,
   ...props
 }: React.ComponentPropsWithRef<T> & ContainerProps<T>) {
-  const Component = as ?? 'div'
+  let Component = as ?? 'div'
 
   return (
     <Component

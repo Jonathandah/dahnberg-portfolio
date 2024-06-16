@@ -3,9 +3,9 @@
 import { type MotionProps, motion, useReducedMotion } from 'framer-motion'
 import * as React from 'react'
 
-const FadeInStaggerContext = React.createContext(false)
+let FadeInStaggerContext = React.createContext(false)
 
-const viewport = { once: true, margin: '0px 0px -200px' }
+let viewport = { once: true, margin: '0px 0px -200px' }
 
 interface FadeInProps<T extends React.ElementType> extends MotionProps {
   as?: T
@@ -15,17 +15,17 @@ export function FadeIn<T extends React.ElementType = 'div'>({
   as,
   ...props
 }: React.ComponentPropsWithRef<T> & FadeInProps<T>) {
-  const Component = as ? motion(as) : motion.div
-  const shouldReduceMotion = useReducedMotion()
-  const isInStaggerGroup = React.useContext(FadeInStaggerContext)
+  let Component = as ? motion(as) : motion.div
+  let shouldReduceMotion = useReducedMotion()
+  let isInStaggerGroup = React.useContext(FadeInStaggerContext)
 
   return (
     <Component
       {...(!isInStaggerGroup && {
-          initial: 'hidden',
-          whileInView: 'visible',
-          viewport,
-        })}
+        initial: 'hidden',
+        whileInView: 'visible',
+        viewport,
+      })}
       {...props}
       variants={{
         hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
@@ -36,10 +36,15 @@ export function FadeIn<T extends React.ElementType = 'div'>({
   )
 }
 
+export interface FadeInStaggerProps
+  extends React.ComponentPropsWithoutRef<typeof motion.div> {
+  faster?: boolean
+}
+
 export function FadeInStagger({
   faster = false,
   ...props
-}: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean }) {
+}: FadeInStaggerProps) {
   return (
     <FadeInStaggerContext.Provider value={true}>
       <motion.div

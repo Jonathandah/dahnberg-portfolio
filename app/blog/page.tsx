@@ -5,7 +5,7 @@ import { HomeNavbar } from '@/components/layout/HomeNavbar'
 import { loadArticles } from '@/lib/utils/mdx'
 
 export default async function BlogPage() {
-  const articles = await loadArticles()
+  let articles = await loadArticles()
 
   return (
     <main>
