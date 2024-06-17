@@ -5,7 +5,6 @@ import Link from 'next/link'
 import * as React from 'react'
 
 export interface RevealButtonProps extends ButtonProps {
-  link?: boolean
   to?: string
   vertical?: boolean
 }
@@ -17,13 +16,13 @@ export function RevealButton({
   className,
   ...props
 }: RevealButtonProps) {
-  let Component: any = props.link ? Link : React.Fragment
+  let Component: any = !!to ? Link : React.Fragment
   let Icon = vertical ? ArrowUpIcon : ArrowLeftIcon
 
   return (
     <Button
       variant="text"
-      asChild={!!props.link}
+      asChild={!!to}
       className={cn(
         'group flex translate-x-0 transform cursor-pointer select-none items-center gap-1 px-4 motion-safe:transition-all',
         vertical
@@ -33,7 +32,7 @@ export function RevealButton({
       )}
       {...props}
     >
-      <Component {...(props.link && { href: to })}>
+      <Component {...(!!to && { href: to })}>
         <span className="flex-shrink-0 translate-y-[1px]">
           <Icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
         </span>
