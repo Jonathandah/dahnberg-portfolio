@@ -23,6 +23,7 @@ const IBMPlexSerif = IBM_Plex_Serif({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dahnberg.dev'),
   title: 'Dahnberg | Portfolio',
   description:
     'Portfolio of Jonathan Meeprong Dahnberg, a frontend developer based in Malmö, Sweden.',
