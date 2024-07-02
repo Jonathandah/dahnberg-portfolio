@@ -20,7 +20,7 @@ export default async function Home() {
           &nbsp; trying to achieve stuff.
         </h1>
         <Image
-          className="w-56 h-auto md:w-72 grayscale"
+          className="w-56 h-auto md:w-72 hover:grayscale-[33%] grayscale transition duration-300"
           src={meDoingPeaceImg}
           priority
           alt="Me doing peace signs"
