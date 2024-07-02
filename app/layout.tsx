@@ -3,7 +3,7 @@ import { Noise } from '@/components/display/Noise'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils/cn'
 import type { Metadata } from 'next'
-import { IBM_Plex_Mono, Libre_Franklin, IBM_Plex_Serif } from 'next/font/google'
+import { IBM_Plex_Mono, IBM_Plex_Serif, IBM_Plex_Sans } from 'next/font/google'
 
 const IBMPlexMono = IBM_Plex_Mono({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -11,7 +11,8 @@ const IBMPlexMono = IBM_Plex_Mono({
   variable: '--font-mono',
 })
 
-const LibreFranklin = Libre_Franklin({
+const IBMPlexSans = IBM_Plex_Sans({
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-sans',
 })
@@ -38,9 +39,9 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body
         className={cn(
-          'min-h-dvh bg-gradient-to-tr from-green-900/10 from-5% to-amber-950/10 to-95% font-sans antialiased flex flex-col',
+          'min-h-dvh bg-gradient-to-tr from-green-900/10 from-5% to-amber-950/10 to-95% font-serif antialiased flex flex-col',
           IBMPlexMono.variable,
-          LibreFranklin.variable,
+          IBMPlexSans.variable,
           IBMPlexSerif.variable,
         )}
       >

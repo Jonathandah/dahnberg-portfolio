@@ -19,7 +19,7 @@ export function Article({ article }: ArticleProps) {
             </Link>
           </h2>
           <Eyebrow
-            className="!text-xs dark:font-thin"
+            className="text-xs font-sans"
             as="time"
             dateTime={article.datetime}
           >

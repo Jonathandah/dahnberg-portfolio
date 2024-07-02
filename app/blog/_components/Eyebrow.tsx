@@ -18,7 +18,7 @@ export function Eyebrow<T extends React.ElementType = 'p'>({
   return (
     <Component
       className={cn(
-        'relative z-10 text-muted-foreground  items-center text-sm text-nowrap   inline-flex',
+        'relative z-10 text-muted-foreground items-center text-sm text-nowrap inline-flex',
         className,
         decorate && 'pl-3.5',
       )}

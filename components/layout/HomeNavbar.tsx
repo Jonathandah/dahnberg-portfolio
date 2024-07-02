@@ -16,7 +16,7 @@ export function HomeNavbar() {
               <Link className="text-xs uppercase pr-4 py-2 block" href="/">
                 Dahnberg
                 <br />
-                Portfolio.
+                Portfolio
               </Link>
             </Button>
           </FadeIn>

@@ -19,7 +19,7 @@ export default async function BlogArticleWrapper({
   return (
     <main>
       {/* Navbar */}
-      <ArticleNavbar backTo="/blog" backButtonText="Back" />
+      <ArticleNavbar backTo="/blog" backButtonText="Leave" />
 
       {/* MDX content */}
       <Container as={FadeIn} className="max-w-3xl py-20 sm:py-28 space-y-6">
@@ -29,7 +29,7 @@ export default async function BlogArticleWrapper({
           </h1>
           <time
             dateTime={article.datetime}
-            className="text-muted-foreground text-xs"
+            className="text-muted-foreground text-xs font-sans"
           >
             {formatDate(new Date(article.datetime))}
           </time>
