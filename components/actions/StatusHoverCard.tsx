@@ -9,26 +9,29 @@ import { formatDate } from '@/lib/utils/formatDate'
 
 let status = {
   text: 'On vacation, will be back July 15th :)',
-  updated: '2024-06-16T10:00:00.000Z',
+  datetime: '2024-07-03',
 }
 
 export function StatusHoverCard() {
   return (
     <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>
-        <Button className="text-xs items-start uppercase" variant="text">
-          @status
+        <Button
+          className="text-xs items-start uppercase cursor-default"
+          variant="text"
+        >
+          _Status
         </Button>
       </HoverCardTrigger>
-      <HoverCardContent className=" bg-transparent/[0.03] dark:bg-transparent/15 shadow-none border-none dark:border dark:border-border w-fit normal-case">
+      <HoverCardContent className="bg-transparent/[0.03] dark:bg-transparent/15 shadow-none border-none w-fit max-w-80 normal-case">
         <div className="flex flex-col">
-          <p className="text-sm">{status.text}</p>
+          <p className="text-sm font-serif">{status.text}</p>
           <Eyebrow
             className="text-xs font-sans p-0"
             as="time"
-            dateTime={'2024-07-02T10:00:00.000Z'}
+            dateTime={status.datetime}
           >
-            Updated {formatDate(new Date(status.updated))}
+            {formatDate(new Date(status.datetime))}
           </Eyebrow>
         </div>
       </HoverCardContent>

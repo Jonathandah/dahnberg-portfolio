@@ -12,7 +12,10 @@ export function ModeToggle({ className, ...props }: ModeToggleProps) {
   return (
     <Button
       variant="text"
-      className={cn('uppercase text-xs text-muted-foreground', className)}
+      className={cn(
+        'text-xs text-muted-foreground uppercase items-start',
+        className,
+      )}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       {...props}
     >
