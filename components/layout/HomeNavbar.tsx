@@ -5,6 +5,7 @@ import { Navbar } from './Navbar'
 import { cn } from '@/lib/utils/cn'
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import { StatusHoverCard } from '../actions/StatusHoverCard'
 
 export function HomeNavbar() {
   return (
@@ -56,7 +57,11 @@ export function HomeNavbar() {
           </FadeIn>
 
           <FadeIn>
-            <ModeToggle />
+            <ModeToggle className='items-start' />
+          </FadeIn>
+
+          <FadeIn>
+            <StatusHoverCard />
           </FadeIn>
 
           <FadeIn className="ml-auto">

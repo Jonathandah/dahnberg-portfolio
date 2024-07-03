@@ -12,9 +12,7 @@ export function ArticleNavbar({ backTo, backButtonText }: ArticleNavbarProps) {
   return (
     <Navbar>
       <FadeIn className="relative flex items-start justify-between gap-2 h-fit">
-        <RevealButton to={backTo}>
-          {backButtonText}
-        </RevealButton>
+        <RevealButton to={backTo}>{backButtonText}</RevealButton>
 
         <ModeToggle className="pr-0" />
       </FadeIn>
