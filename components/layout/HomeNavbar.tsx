@@ -10,10 +10,11 @@ export function HomeNavbar() {
   return (
     <Navbar className="uppercase">
       <FadeInStagger className="relative flex flex-col sm:flex-row items-start justify-between gap-2 h-fit">
-        <div className="flex items-start w-full">
+        <div className="grid grid-cols-1 sm:grid-rows-1 grid-rows-2 sm:grid-cols-2 w-full">
+          <div className='flex'>
           <FadeIn>
-            <Button asChild size="no-padding" variant="text">
-              <Link className="text-xs  pr-4 py-2 block" href="/">
+            <Button asChild className="text-xs h-fit pl-0" variant="text">
+              <Link href="/">
                 Dahnberg
                 <br />
                 Portfolio
@@ -21,52 +22,48 @@ export function HomeNavbar() {
             </Button>
           </FadeIn>
 
-          <FadeIn>
-            <div className="flex flex-col items-start   px-4 py-2 ">
-              <Button
-                className="text-xs items-start"
-                asChild
-                variant="link"
-                size="no-padding"
+          <FadeIn className="flex flex-col items-start px-4 py-2 ">
+            <Button
+              className="text-xs items-start"
+              asChild
+              variant="link"
+              size="no-padding"
+            >
+              <Link
+                href="https://www.linkedin.com/in/jonathan-meeprong-dahnberg-5289ba174/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Link
-                  href="https://www.linkedin.com/in/jonathan-meeprong-dahnberg-5289ba174/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn <ArrowUpRightIcon className="h-3 w-3 " />
-                </Link>
-              </Button>
+                LinkedIn <ArrowUpRightIcon className="h-3 w-3 " />
+              </Link>
+            </Button>
 
-              <Button
-                className="text-xs items-start"
-                asChild
-                variant="link"
-                size="no-padding"
+            <Button
+              className="text-xs items-start"
+              asChild
+              variant="link"
+              size="no-padding"
+            >
+              <Link
+                href="https://github.com/Jonathandah"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Link
-                  href="https://github.com/Jonathandah"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Github <ArrowUpRightIcon className="h-3 w-3 " />
-                </Link>
-              </Button>
-            </div>
+                Github <ArrowUpRightIcon className="h-3 w-3 " />
+              </Link>
+            </Button>
           </FadeIn>
 
           <FadeIn>
             <StatusHoverCard />
           </FadeIn>
-          
           <FadeIn>
             <ModeToggle />
-          </FadeIn>
+            </FadeIn>
+            </div>
 
-      
-
-          <FadeIn className="ml-auto">
-            <Button asChild variant="link" className="text-xs  pr-0 pl-0">
+          <FadeIn className='sm:ml-auto sm:row-start-1 sm:col-start-2 row-start-2'>
+            <Button asChild variant="link" className="text-xs sm:pr-0 sm:pl-4 pl-0 pr-4 py-2 items-start">
               <Link href="/blog">Blog</Link>
             </Button>
           </FadeIn>
