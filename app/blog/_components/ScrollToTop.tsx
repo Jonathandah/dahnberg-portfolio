@@ -35,7 +35,7 @@ export function ScrollToTop() {
     <Container className="flex items-center justify-end h-16 max-w-none fixed bottom-0 right-0 w-full">
       {isScrollButtonVisible && (
         <RevealButton
-          className="hover:bg-background gap-0"
+          className="gap-0"
           vertical
           onClick={scrollToTop}
         >

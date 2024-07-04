@@ -11,7 +11,7 @@ export interface RevealButtonProps extends ButtonProps {
 
 export function RevealButton({
   children,
-  to = '/',
+  to,
   vertical,
   className,
   ...props
