@@ -7,11 +7,11 @@ import Image from 'next/image'
 
 export default async function Home() {
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden flex-1 flex flex-col">
       <HomeNavbar />
       <Container
         as={FadeIn}
-        className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28 max-w-2xl"
+        className="flex flex-col gap-12 sm:gap-20 py-20 sm:py-28 max-w-2xl my-auto"
       >
         <h1 className="text-xl font-medium dark:text-muted-foreground sm:text-2xl">
           <Indent />
