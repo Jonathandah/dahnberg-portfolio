@@ -8,8 +8,8 @@ import {
 import { formatDate } from '@/lib/utils/formatDate'
 
 let status = {
-  text: 'Busy moving my entire home & mastering caching for some reason.',
-  datetime: '2024-09-07',
+  text: 'Renovating my kitchen...',
+  datetime: '2024-12-14',
 }
 
 export function StatusHoverCard() {
