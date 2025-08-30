@@ -29,7 +29,7 @@ export default async function Home() {
           <Indent />
           Who am I? — Sorry to disappoint you. I’m just a regular guy based
           in&nbsp;
-          <span className="underline text-foreground">Malmö, Sweden</span>, who
+          <span className="underline text-foreground">Sweden</span>, who
           nerds over fonts and colors.
         </h2>
       </Container>
